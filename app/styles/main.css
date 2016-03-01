@@ -1,3 +1,16 @@
+/*Noi editam css doar aici */
+.wrapper {
+  width:90%;
+  margin:0 auto;
+}
+
+i {
+  color:green;
+}
+
+
+/*Clase default ale yeoman de care nu ne atingem ca sunt gandite bine*/
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -7,11 +20,10 @@
 
 body {
   padding: 0;
+  width:100%;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -22,6 +34,7 @@ body {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -41,25 +54,6 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
@@ -72,12 +66,9 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }
