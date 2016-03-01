@@ -8,6 +8,17 @@ i {
   color:green;
 }
 
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+
+}
+
+[contenteditable=true] {
+  border: 1px dashed #AAA;
+  width: 290px;
+  padding: 5px;
+}
 
 /*Clase default ale yeoman de care nu ne atingem ca sunt gandite bine*/
 
