@@ -21,8 +21,61 @@ i.minus {
   padding: 5px;
   text-align: center;
 }
-
-/*Clase default ale yeoman de care nu ne atingem ca sunt gandite bine*/
+/*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
+.sidebar-container{
+  width: 200px;
+  padding-bottom: 30px;
+  background-color: #E3F2FD;
+  display: inline-block;
+}
+.upload-photo {
+  width: 200px;
+  height: 200px;
+}
+.sidebar-container h2,
+.sidebar-container h4 {
+  text-align: center;
+  display: inline-block;
+}
+.sidebar-container i {
+  color: #0D47A1;
+  font-size: 20px;
+  margin:0 25px 0 20px;
+}
+.sidebar-container p {
+  margin:0 10px 0 10px;
+  text-align: left;
+}
+.about-section hr,
+.contact-section hr,
+.social-section hr {
+  width: 170px;
+  border-color: #0D47A1;
+}
+.contact-section, .social-section {
+    text-align: center;
+}
+.contact-section h4 {
+  display: block;
+}
+.contact-section i,
+.social-section i {
+  margin: 10px -10px 10px 10px;
+  font-size: 20px;
+}
+.social-section i {
+  font-size: 25px;
+}
+.contact-section span,
+.social-section span {
+  color: #000000;
+  font-size: 16px;
+  display: inline-block;
+  width: 150px;
+  margin-left: 10px;
+  text-align: left;
+}
+  /*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine----------------------*/
 
 .browsehappy {
   margin: 0.2em 0;
