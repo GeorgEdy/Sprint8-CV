@@ -15,8 +15,7 @@ i {
 }
 
 [contenteditable=true] {
-  border: 1px dashed #AAA;
-  width: 290px;
+  width: 200px;
   padding: 5px;
 }
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
