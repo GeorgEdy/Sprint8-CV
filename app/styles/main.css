@@ -19,8 +19,14 @@ i {
   width: 290px;
   padding: 5px;
 }
-
-/*Clase default ale yeoman de care nu ne atingem ca sunt gandite bine*/
+/*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
+.sidebar-container{
+  width: 200px;
+  height:800px;
+  background-color:#E3F2FD;
+  display:inline-block;
+}
+/*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine----------------------*/
 
 .browsehappy {
   margin: 0.2em 0;
