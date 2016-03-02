@@ -4,7 +4,7 @@
          src="https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
          alt="Resume photo"/>
     <div>
-      <h2 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h2>
+      <h3 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h3>
       <h4 contenteditable="true" placeholder="Current position">{{ personalDetails.currPos }}</h4>
     </div>
     <div class="about-section">
@@ -77,7 +77,8 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <i class="glyphicon glyphicon-minus minus" data-id={{$index}} ng-click="deleteField('workingExperience', $event)"></i>
+      <i class="glyphicon glyphicon-minus minus" data-id={{$index}}
+         ng-click="deleteField('workingExperience', $event)"></i>
     </div>
   </div>
   <div>
@@ -109,7 +110,7 @@
     <h2>Languages</h2>
     <i class="glyphicon glyphicon-plus plus"></i>
     <div ng-repeat="item in languages">
-      <div class="row" >
+      <div class="row">
         <span class="col-md-2 margins">Understanding</span>
         <span class="col-md-2 both-margins">Speaking</span>
         <span class="col-md-2">Writing</span>

@@ -1,89 +1,113 @@
 /*Noi editam css doar aici */
 .wrapper {
-  width:90%;
-  margin:0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 i.plus {
   color: #00CC00;
 }
+
 i.minus {
   color: #CC0000;
 }
+
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   display: block;
 
 }
 
-[contenteditable=true] {
-  width: 135px;
-}
 .free[contenteditable=true] {
   width: 100%;
 }
+
 .both-margins {
   margin: 0 28px;
 }
+
 .margins {
-  margin-left:14%;
+  margin-left: 14%;
 }
+
 .margin {
-  margin-right:24%;
+  margin-right: 24%;
 }
+
 .space {
-  margin:10% 0;
+  margin: 10% 0;
 }
+
+[contenteditable=true] {
+  width: auto;
+  transition: .05s ease-in-out;
+}
+
+[contenteditable=true]:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
-.sidebar-container{
+.sidebar-container {
   width: 90%;
+  margin-top: 30px;
   padding-bottom: 30px;
-  background-color: #E3F2FD;
-  display: inline-block;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /*background-color: #E3F2FD;*/
+  /*text-align: center;*/
+  /*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);*/
   margin-bottom: 20px;
   border-radius: 6px;
 }
+
 .upload-photo {
-  width: 200px;
-  height: 200px;
+  width: 90%;
+  margin: 0 auto;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
+
 .sidebar-container h2,
 .sidebar-container h4 {
   text-align: center;
   display: inline-block;
 }
+
 .sidebar-container i {
   color: #0D47A1;
   font-size: 20px;
-  margin:0 25px 0 20px;
+  margin: 0 25px 0 20px;
 }
+
 .sidebar-container p {
-  margin:0 10px 0 10px;
+  margin: 0 10px 0 10px;
   text-align: left;
 }
+
 .about-section hr,
 .contact-section hr,
 .social-section hr {
   width: 170px;
   border-color: #0D47A1;
 }
+
 .contact-section, .social-section {
-    text-align: center;
+  text-align: center;
 }
+
 .contact-section h4 {
   display: block;
 }
+
 .contact-section i,
 .social-section i {
   margin: 10px -10px 10px 10px;
   font-size: 20px;
 }
+
 .social-section i {
   font-size: 25px;
 }
+
 .contact-section span,
 .social-section span {
   color: #000000;
@@ -93,6 +117,7 @@ i.minus {
   margin-left: 10px;
   text-align: left;
 }
+
 /*------------------------------------------------SIDEBAR CSS---------------------------------------------------------*/
 .list-view {
   background-color: dimgray;
@@ -100,6 +125,7 @@ i.minus {
   height: 100%;
   padding: 50px;
 }
+
 .create-document, .existing-document {
   width: 300px;
   height: 400px;
@@ -109,19 +135,22 @@ i.minus {
   display: inline-block;
   margin: 10px;
   vertical-align: middle;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
+
 .create-document i {
   font-size: 100px;
-  margin:0 auto;
+  margin: 0 auto;
   display: block;
   color: #00C853;
   text-align: center;
   line-height: 3.5;
 }
+
 .existing-document h2 {
   line-height: 10;
 }
+
 /*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine------------------------*/
 
 .browsehappy {
@@ -133,7 +162,8 @@ i.minus {
 
 body {
   padding: 0;
-  width:100%;
+  width: 100%;
+  background-color: #eeeeee;
 }
 
 .header,
@@ -185,3 +215,14 @@ body {
     margin-bottom: 30px;
   }
 }
+
+.document-page {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.2s ease-in-out;
+}
+
+.document-page:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
