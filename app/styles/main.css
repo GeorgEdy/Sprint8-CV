@@ -17,13 +17,26 @@ i.minus {
 }
 
 [contenteditable=true] {
-  width: 150px;
-  padding: 5px;
-  text-align: center;
+  width: 135px;
+}
+.free[contenteditable=true] {
+  width: 100%;
+}
+.both-margins {
+  margin: 0 28px;
+}
+.margins {
+  margin-left:14%;
+}
+.margin {
+  margin-right:24%;
+}
+.space {
+  margin:10% 0;
 }
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container{
-  width: 200px;
+  width: 90%;
   padding-bottom: 30px;
   background-color: #E3F2FD;
   display: inline-block;
