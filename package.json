@@ -1,6 +1,9 @@
 {
   "name": "sprint8",
   "private": true,
+  "version": "1.0.0",
+  "description": "CV App",
+  "author": "The GoDev C Team!",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
@@ -32,12 +35,15 @@
     "karma-jasmine": "^0.3.7",
     "karma-phantomjs-launcher": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.4",
-    "time-grunt": "^1.3.0"
+    "time-grunt": "^1.3.0",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "karma start test\\karma.conf.js"
+    "test": "karma start test\\karma.conf.js",
+    "start": "node server.js"
   }
 }

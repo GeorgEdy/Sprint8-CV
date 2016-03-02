@@ -1,10 +1,10 @@
 <div class="col-md-4">
-  <div class="sidebar-container">
+  <aside class="sidebar-container">
     <img class="upload-photo"
          src="https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
          alt="Resume photo"/>
     <div>
-      <h2 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h2>
+      <h3 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h3>
       <h4 contenteditable="true" placeholder="Current position">{{ personalDetails.currPos }}</h4>
     </div>
     <div class="about-section">
@@ -47,12 +47,15 @@
         <span contenteditable="true" placeholder="LinkedIn profile">{{ personalDetails.linkedin }}</span>
       </div>
     </div>
-  </div>
+  </aside>
 </div>
-<div class="col-md-7">
-  <div class="space">
+<article class="col-md-8">
+  <section class="space" ng-mouseenter="showButtons.work = true" ng-mouseleave="showButtons.work = false">
     <h2>Work experience</h2>
-    <i class="glyphicon glyphicon-plus plus" ng-click="addField('workingExperience')"></i>
+    <span ng-click="addField('workingExperience')" ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
+    <i class="glyphicon glyphicon-plus plus"></i>
+    <span class="plus">Add Item</span>
+    </span>
     <div ng-repeat="item in workingExperience">
       <div class="pull-left">
         <div contenteditable="true" placeholder="Position">{{item.position}}</div>
@@ -77,12 +80,21 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <i class="glyphicon glyphicon-minus minus" data-id={{$index}} ng-click="deleteField('workingExperience', $event)"></i>
+      <span data-id={{$index}} ng-click="deleteField('workingExperience', $event)"
+            ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
+        <i class="glyphicon glyphicon-minus minus"></i>
+        <span class="minus">
+          Remove Item
+        </span>
+      </span>
     </div>
-  </div>
-  <div>
+  </section>
+  <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
     <h2>Education</h2>
-    <i class="glyphicon glyphicon-plus plus"></i>
+    <span ng-click="addField('workingExperience')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+      <i class="glyphicon glyphicon-plus plus"></i>
+      <span class="plus">Add Item</span>
+    </span>
     <div ng-repeat="item in education">
       <div class="pull-left">
         <div contenteditable="true" placeholder="Degree">{{item.degree}}</div>
@@ -102,14 +114,23 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <i class="glyphicon glyphicon-minus minus" data-id={{$index}}></i>
+            <span data-id={{$index}} ng-click="deleteField('workingExperience', $event)"
+                  ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+        <i class="glyphicon glyphicon-minus minus"></i>
+        <span class="minus">
+          Remove Item
+        </span>
+      </span>
     </div>
-  </div>
-  <div class="space">
+  </section>
+  <section class="space" ng-mouseenter="showButtons.languages = true" ng-mouseleave="showButtons.languages = false">
     <h2>Languages</h2>
-    <i class="glyphicon glyphicon-plus plus"></i>
+    <span ng-click="addField('workingExperience')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
+      <i class="glyphicon glyphicon-plus plus"></i>
+      <span class="plus">Add Item</span>
+    </span>
     <div ng-repeat="item in languages">
-      <div class="row" >
+      <div class="row">
         <span class="col-md-2 margins">Understanding</span>
         <span class="col-md-2 both-margins">Speaking</span>
         <span class="col-md-2">Writing</span>
@@ -119,12 +140,19 @@
         <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.understanding}}</div>
         <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.speaking}}</div>
         <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.writing}}</div>
+        <span data-id={{$index}} ng-click="deleteField('workingExperience', $event)"
+              ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
         <i class="glyphicon glyphicon-minus minus"></i>
+        <span class="minus">
+          Remove Item
+        </span>
+      </span>
       </div>
     </div>
-  </div>
-  <div class="hide-buttons space">
+  </section>
+  <section class="hide-buttons space" ng-mouseenter="showButtons.proSkills = true"
+           ng-mouseleave="showButtons.proSkills = false">
     <h2>Professional Skills</h2>
     <div contenteditable="true" class="free" placeholder="e.g. team player">{{skills}}</div>
-  </div>
-</div>
+  </section>
+</article>
