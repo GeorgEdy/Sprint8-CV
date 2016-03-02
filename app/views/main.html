@@ -82,13 +82,14 @@
   </div>
   <div>
     <h2>Education</h2>
-    <div>
+    <i class="glyphicon glyphicon-plus plus"></i>
+    <div ng-repeat="item in education">
       <div class="pull-left">
-        <div contenteditable="true" placeholder="Degree"></div>
+        <div contenteditable="true" placeholder="Degree">{{item.degree}}</div>
       </div>
       <div class="pull-right">
         <div>
-          <div contenteditable="true" placeholder="School name and location"></div>
+          <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
       <span>From:<label>
         <input type="date">
@@ -97,32 +98,33 @@
         <input type="date">
       </label></span>
         <div>
-          <div contenteditable="true" placeholder="description"></div>
+          <div contenteditable="true" placeholder="description">{{item.description}}</div>
         </div>
       </div>
       <div class="clearfix"></div>
-      <i class="glyphicon glyphicon-minus minus"></i>
-      <i class="glyphicon glyphicon-plus plus"></i>
+      <i class="glyphicon glyphicon-minus minus" data-id={{$index}}></i>
     </div>
   </div>
   <div class="space">
     <h2>Languages</h2>
-    <div class="row">
-      <span class="col-md-2 margins">Understanding</span>
-    <span class="col-md-2 both-margins">Speaking</span>
-    <span class="col-md-2">Writing</span>
-    </div>
-    <div class="row hide-buttons">
-      <div contenteditable="true" placeholder="English" class="col-md-2"></div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
-      <i class="glyphicon glyphicon-minus minus"></i>
-      <i class="glyphicon glyphicon-plus plus"></i>
+    <i class="glyphicon glyphicon-plus plus"></i>
+    <div ng-repeat="item in languages">
+      <div class="row" >
+        <span class="col-md-2 margins">Understanding</span>
+        <span class="col-md-2 both-margins">Speaking</span>
+        <span class="col-md-2">Writing</span>
+      </div>
+      <div class="row hide-buttons">
+        <div contenteditable="true" placeholder="Name" class="col-md-2">{{item.name}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.understanding}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.speaking}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.writing}}</div>
+        <i class="glyphicon glyphicon-minus minus"></i>
+      </div>
     </div>
   </div>
   <div class="hide-buttons space">
     <h2>Professional Skills</h2>
-    <div contenteditable="true" class="free" placeholder="e.g. team player"></div>
+    <div contenteditable="true" class="free" placeholder="e.g. team player">{{skills}}</div>
   </div>
 </div>
