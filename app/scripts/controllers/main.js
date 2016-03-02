@@ -15,16 +15,27 @@ angular.module('sprint8App')
       'Karma'
     ];
 
+    var checkDisplayButtons = true;
+
     $scope.displayButtons = function (event) {
-      $(event.target.parentNode).removeClass('hide-buttons');
+      var parent = event.target.parentNode;
+      if(checkDisplayButtons) {
+        while (!$(parent).hasClass('hide-buttons')) {
+          parent = parent.parentNode;
+        }
+        $(parent).removeClass('hide-buttons');
+        checkDisplayButtons = false;
+      }
     };
 
     $scope.cancelAction = function () {
       $(event.target.parentNode).addClass('hide-buttons');
+      checkDisplayButtons = true;
     };
 
     $scope.saveAction = function () {
       $(event.target.parentNode).addClass('hide-buttons');
+      checkDisplayButtons = true;
     };
 
   });
