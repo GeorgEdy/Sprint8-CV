@@ -4,33 +4,35 @@
          src="https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
          alt="Resume photo"/>
     <div>
-      <h2 contenteditable="true" placeholder="Name"></h2>
-      <h4 contenteditable="true" placeholder="Current position"></h4>
+      <h2 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h2>
+      <h4 contenteditable="true" placeholder="Current position">{{ personalDetails.currPos }}</h4>
     </div>
     <div class="about-section">
       <hr>
       <h4><i class="glyphicon glyphicon-user"></i>About me</h4>
       <p contenteditable="true"
-         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></p>
+         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+        {{ personalDetails.aboutMe }}
+      </p>
     </div>
     <div class="contact-section">
       <hr>
       <h4>Contact Info</h4>
       <div class="contact-phone">
         <i class="glyphicon glyphicon-earphone"></i>
-        <span contenteditable="true" placeholder="Phone number"></span>
+        <span contenteditable="true" placeholder="Phone number">{{ personalDetails.phoneNumber }}</span>
       </div>
       <div class="contact-address">
         <i class="glyphicon glyphicon-map-marker"></i>
-        <span contenteditable="true" placeholder="Address"></span>
+        <span contenteditable="true" placeholder="Address">{{ personalDetails.address }}</span>
       </div>
       <div class="contact-email">
         <i class="glyphicon glyphicon-envelope"></i>
-        <span contenteditable="true" placeholder="E-mail"></span>
+        <span contenteditable="true" placeholder="E-mail">{{ personalDetails.email }}</span>
       </div>
       <div class="contact-website">
         <i class="glyphicon glyphicon-globe"></i>
-        <span contenteditable="true" placeholder="Website"></span>
+        <span contenteditable="true" placeholder="Website">{{ personalDetails.website }}</span>
       </div>
     </div>
     <div class="social-section">
@@ -38,26 +40,26 @@
       <h4>Social Media</h4>
       <div class="social-skype">
         <i class="fa fa-skype"></i>
-        <span contenteditable="true" placeholder="Skype ID"></span>
+        <span contenteditable="true" placeholder="Skype ID">{{ personalDetails.skype }}</span>
       </div>
       <div class="social-linkedin">
         <i class="fa fa-linkedin-square"></i>
-        <span contenteditable="true" placeholder="LinkedIn profile"></span>
+        <span contenteditable="true" placeholder="LinkedIn profile">{{ personalDetails.linkedin }}</span>
       </div>
-
     </div>
   </div>
 </div>
 <div class="col-md-7">
-  <div class="space hide-buttons">
+  <div class="space">
     <h2>Work experience</h2>
-    <div ng-click="displayButtons($event)">
+    <i class="glyphicon glyphicon-plus plus" ng-click="addField('workingExperience')"></i>
+    <div ng-repeat="item in workingExperience">
       <div class="pull-left">
-        <div contenteditable="true" placeholder="Position"></div>
+        <div contenteditable="true" placeholder="Position">{{item.position}}</div>
       </div>
       <div class="pull-right">
         <div>
-          <div contenteditable="true" placeholder="Company name and location"></div>
+          <div contenteditable="true" placeholder="Company name and location">{{item.company}}</div>
         </div>
           <span>From:
           <label>
@@ -71,19 +73,16 @@
           </label>
         </span>
         <div>
-          <div contenteditable="true" placeholder="Description"></div>
+          <div contenteditable="true" placeholder="Description">{{item.description}}</div>
         </div>
       </div>
       <div class="clearfix"></div>
-      <i class="glyphicon glyphicon-minus minus"></i>
-      <i class="glyphicon glyphicon-plus plus"></i>
+      <i class="glyphicon glyphicon-minus minus" data-id={{$index}} ng-click="deleteField('workingExperience', $event)"></i>
     </div>
-    <button class="save-btn" ng-click="saveAction()">Save</button>
-    <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
   </div>
-  <div class="hide-buttons parent">
+  <div>
     <h2>Education</h2>
-    <div ng-click="displayButtons($event)">
+    <div>
       <div class="pull-left">
         <div contenteditable="true" placeholder="Degree"></div>
       </div>
@@ -105,8 +104,6 @@
       <i class="glyphicon glyphicon-minus minus"></i>
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
-    <button class="save-btn" ng-click="saveAction()">Save</button>
-    <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
   </div>
   <div class="space">
     <h2>Languages</h2>
@@ -116,20 +113,16 @@
     <span class="col-md-2">Writing</span>
     </div>
     <div class="row hide-buttons">
-      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="English" class="col-md-2"></div>
-      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" placeholder="English" class="col-md-2"></div>
+      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
       <i class="glyphicon glyphicon-minus minus"></i>
       <i class="glyphicon glyphicon-plus plus"></i>
-      <button class="save-btn col-md-2" ng-click="saveAction()">Save</button>
-      <button class="cancel-btn col-md-2" ng-click="cancelAction()">Cancel</button>
     </div>
   </div>
   <div class="hide-buttons space">
     <h2>Professional Skills</h2>
-    <div contenteditable="true" class="free" ng-click="displayButtons($event)" placeholder="e.g. team player"></div>
-    <button class="save-btn" ng-click="saveAction()">Save</button>
-    <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
+    <div contenteditable="true" class="free" placeholder="e.g. team player"></div>
   </div>
 </div>
