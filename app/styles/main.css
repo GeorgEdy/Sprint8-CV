@@ -172,3 +172,7 @@ body {
     margin-bottom: 30px;
   }
 }
+
+.hide-buttons button {
+  display: none;
+}
