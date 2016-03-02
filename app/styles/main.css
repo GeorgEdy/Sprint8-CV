@@ -27,10 +27,15 @@ i.minus {
   padding-bottom: 30px;
   background-color: #E3F2FD;
   display: inline-block;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin-bottom: 20px;
+  border-radius: 6px;
 }
 .upload-photo {
   width: 200px;
   height: 200px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 .sidebar-container h2,
 .sidebar-container h4 {
@@ -75,7 +80,36 @@ i.minus {
   margin-left: 10px;
   text-align: left;
 }
-  /*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine----------------------*/
+/*------------------------------------------------SIDEBAR CSS---------------------------------------------------------*/
+.list-view {
+  background-color: dimgray;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
+.create-document, .existing-document {
+  width: 300px;
+  height: 400px;
+  background-color: whitesmoke;
+  border-radius: 6px;
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: middle;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.create-document i {
+  font-size: 100px;
+  margin:0 auto;
+  display: block;
+  color: #00C853;
+  text-align: center;
+  line-height: 3.5;
+}
+.existing-document h2 {
+  line-height: 10;
+}
+/*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine------------------------*/
 
 .browsehappy {
   margin: 0.2em 0;
