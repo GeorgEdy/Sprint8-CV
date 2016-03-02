@@ -4,10 +4,12 @@
   margin:0 auto;
 }
 
-i {
-  color:green;
+i.plus {
+  color: #00CC00;
 }
-
+i.minus {
+  color: #CC0000;
+}
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   display: block;
@@ -15,8 +17,9 @@ i {
 }
 
 [contenteditable=true] {
-  width: 200px;
+  width: 150px;
   padding: 5px;
+  text-align: center;
 }
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container{
