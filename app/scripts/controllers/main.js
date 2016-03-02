@@ -35,6 +35,22 @@
         description: 'No ideea what I am doing here'
       }
     ];
+    $scope.education = [
+      {
+        degree: 'BAC',
+        school: 'Numaru 9',
+        description: 'best school ever'
+      }
+    ];
+    $scope.languages = [
+      {
+        name: 'english',
+        understanding: 'C1',
+        speaking: 'B2',
+        writing: 'B2'
+      }
+    ];
+    $scope.skills = 'smecherie';
 
     $scope.addField = function (name) {
       //FieldActions.addField($scope, name);
