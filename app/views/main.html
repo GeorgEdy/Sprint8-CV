@@ -82,16 +82,28 @@
   </div>
   <div>
     <h2>Education</h2>
-    <div class="pull-left"><span contenteditable="true" placeholder="Degree"></span></div>
+    <div class="pull-left hide-buttons">
+      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="Degree"></div>
+      <button class="save-btn" ng-click="saveAction()">Save</button>
+      <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
+    </div>
     <div class="pull-right">
-      <span contenteditable="true" placeholder="School name and location"></span>
+      <div class="hide-buttons">
+        <div contenteditable="true" ng-click="displayButtons($event)" placeholder="School name and location"></div>
+        <button class="save-btn" ng-click="saveAction()">Save</button>
+        <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
+      </div>
       <span>From:<label>
         <input type="date">
       </label></span>
       <span>To:<label>
         <input type="date">
       </label></span>
-      <div><span contenteditable="true" placeholder="description"></span></div>
+      <div class="hide-buttons">
+        <div contenteditable="true" ng-click="displayButtons($event)" placeholder="description"></div>
+        <button class="save-btn" ng-click="saveAction()">Save</button>
+        <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
+      </div>
     </div>
     <div class="clearfix"></div>
     <i class="glyphicon glyphicon-minus"></i>
@@ -102,17 +114,21 @@
     <span>Understanding</span>
     <span>Speaking</span>
     <span>Writing</span>
-    <div class="row">
+    <div class="row hide-buttons">
       <div class="col-md-2">English</div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
-      <div contenteditable="true" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
+      <div contenteditable="true" ng-click="displayButtons($event)" placeholder="C1" class="col-md-2"></div>
       <i class="glyphicon glyphicon-minus"></i>
       <i class="glyphicon glyphicon-plus"></i>
+      <button class="save-btn col-md-2" ng-click="saveAction()">Save</button>
+      <button class="cancel-btn col-md-2" ng-click="cancelAction()">Cancel</button>
     </div>
   </div>
-  <div>
+  <div class="hide-buttons">
     <h2>Professional Skills</h2>
-    <div contenteditable="true" placeholder="e.g. team player"></div>
+    <div contenteditable="true" ng-click="displayButtons($event)" placeholder="e.g. team player"></div>
+    <button class="save-btn" ng-click="saveAction()">Save</button>
+    <button class="cancel-btn" ng-click="cancelAction()">Cancel</button>
   </div>
 </div>
