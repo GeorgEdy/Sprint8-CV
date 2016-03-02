@@ -5,12 +5,8 @@
 
   //controllers
   app.controller('MainCtrl', function ($scope, FieldActions) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
+    $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
     $scope.cvName = 'Untitled CV';
     $scope.personalDetails = {
       name: 'Ghinea Razvan',
