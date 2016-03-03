@@ -1,4 +1,7 @@
 /*Noi editam css doar aici */
+* {
+  font-family: "Roboto", sans-serif;
+}
 .wrapper {
   width: 90%;
   margin: 0 auto;
@@ -7,13 +10,12 @@
 .plus {
   color: #00CC00;
   padding: 10px 5px;
-
+  text-align:right;
 }
 
 .minus {
   color: #CC0000;
   padding: 10px 5px;
-
 }
 
 .invisibleButton {
@@ -26,17 +28,17 @@
   margin: 0;
   opacity: 1;
   transition: all 0.2s;
-
 }
 
 [contenteditable=true]:empty:before {
   content: attr(placeholder);
   display: block;
-
 }
 
-.free[contenteditable=true] {
+.skills-section[contenteditable=true] {
   width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
 }
 
 .both-margins {
@@ -58,19 +60,39 @@
 [contenteditable=true] {
   width: auto;
   transition: .05s ease-in-out;
+  outline: none;
 }
 
 [contenteditable=true]:hover {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 }
-
+[contenteditable=true]:hover{
+  background-color: rgba(	128,216,255, 0.3);
+}
+section > hr {
+  padding: 0;
+  border: none;
+  border-top: medium double #0091EA;
+  color: #0091EA;
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+section > h3 {
+  color: #0091EA;
+  margin-top: 0;
+  text-align: center;
+}
+.hr-between-items {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba( 0,145,234, 0), rgba( 0,145,234, 1), rgba( 0,145,234, 0));
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
-  width: 90%;
+  width: 95%;
   margin-top: 30px;
   padding-bottom: 30px;
-  /*background-color: #E3F2FD;*/
-  /*text-align: center;*/
+  text-align: center;
   /*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);*/
   margin-bottom: 20px;
   border-radius: 6px;
@@ -79,10 +101,11 @@
 .upload-photo {
   width: 90%;
   margin-left: 5%;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  margin-top: 5px;
 }
-
+.sidebar-container h3{
+  color: #0091EA;
+}
 .sidebar-container h2,
 .sidebar-container h4 {
   text-align: center;
@@ -90,31 +113,37 @@
 }
 
 .sidebar-container i {
-  color: #0D47A1;
+  color: #0091EA;
   font-size: 20px;
   margin: 0 25px 0 20px;
 }
 
 .sidebar-container p {
   margin: 0 10px 0 10px;
-  text-align: left;
+  text-align: center;
 }
 
 .about-section hr,
 .contact-section hr,
 .social-section hr {
-  width: 170px;
-  border-color: #0D47A1;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba( 0,145,234, 0), rgba( 0,145,234, 1), rgba( 0,145,234, 0));
 }
 
 .contact-section, .social-section {
   text-align: center;
 }
-
-.contact-section h4 {
-  display: block;
+.about-section i {
+  margin: 0 10px 0 -15px;
 }
-
+.contact-section h4, .social-section h4 {
+  display: block;
+  color: #0091EA;
+}
+.about-section h4 {
+  color: #0091EA;
+}
 .contact-section i,
 .social-section i {
   margin: 10px -10px 10px 10px;
@@ -128,14 +157,22 @@
 .contact-section span,
 .social-section span {
   color: #000000;
-  font-size: 16px;
+  font-size: 15px;
   display: inline-block;
-  width: 150px;
-  margin-left: 10px;
+  width: 74%;
+  margin-left: 13px;
   text-align: left;
 }
+section .fa-circle {
+  color: #0091EA;
+  margin-right: 10px;
+}
 
-/*------------------------------------------------SIDEBAR CSS---------------------------------------------------------*/
+.bulleted-text {
+  font-weight: 600;
+  color: #0091EA;
+}
+/*------------------------------------------------LIST VIEW CSS---------------------------------------------------------*/
 .list-view {
   background-color: dimgray;
   width: 100%;
@@ -167,7 +204,32 @@
 .existing-document h2 {
   line-height: 10;
 }
-
+/*------------------------------------------------HEADER CSS---------------------------------------------------------*/
+.header-nav {
+  margin-left: -25px;
+}
+.document-title {
+  font-size: 30px;
+  margin: 5px 15px 3px 15px;
+}
+.undo-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 15px 15px 3px 25px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.undo-btn:active{
+  color: #0091EA;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #000000;
+}
+.navbar-default .navbar-nav > li > a:hover{
+  color: #0091EA;
+}
 /*-------------------------Clase default ale yeoman de care nu ne atingem ca sunt gandite bine------------------------*/
 
 .browsehappy {
@@ -237,6 +299,7 @@ body {
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.2s ease-in-out;
+  margin-bottom: 50px;
 }
 
 .document-page:hover {
@@ -249,7 +312,7 @@ section, aside {
   border-radius: 6px;
 }
 
-section:hover, aside:hover {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
+/*section:hover, aside:hover {*/
+  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+/*}*/
 
