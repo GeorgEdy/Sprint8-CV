@@ -41,6 +41,10 @@
   margin: 10px 0 20px 0;
 }
 
+li[contenteditable=true], h3[contenteditable=true] {
+  width:auto;
+}
+
 .both-margins {
   margin: 0 28px;
 }
@@ -58,7 +62,7 @@
 }
 
 [contenteditable=true] {
-  width: 100px;
+  width: 140px;
   transition: .05s ease-in-out;
   outline: none;
 }
