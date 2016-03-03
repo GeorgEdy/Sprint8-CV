@@ -25,7 +25,7 @@
 <!-- Add your site or application content here -->
 <div class="header">
   <div class="navbar navbar-default" role="navigation">
-    <div class="container">
+    <div class="container header-nav">
       <div class="navbar-header">
 
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -35,14 +35,16 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="/">sprint8</a>
+        <a class="navbar-brand" href="/"></a>
       </div>
 
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
         <ul class="nav navbar-nav">
+          <li><a ng-href="/list" class="fa fa-bars fa-3x"></a></li>
           <li class="active"><a href="/">Home</a></li>
-          <li><a ng-href="/list">List</a></li>
+          <li contenteditable="true" placeholder="CV Untitled" class="document-title"></li>
+          <li><button class="fa fa-undo fa-lg fa-2x undo-btn"></button></li>
         </ul>
       </div>
     </div>
@@ -54,13 +56,6 @@
     <ng-view></ng-view>
   </div>
 </div>
-
-<div class="footer">
-  <div class="container">
-    <p><span class="glyphicon glyphicon-heart"></span> from the Coolest team</p>
-  </div>
-</div>
-
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
