@@ -51,7 +51,8 @@
 </div>
 <article class="col-md-8">
   <section class="space" ng-mouseenter="showButtons.work = true" ng-mouseleave="showButtons.work = false">
-    <h2>Work experience</h2>
+    <h3>Work experience</h3>
+    <hr>
     <span ng-click="addField('workingExperience')" ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
     <i class="glyphicon glyphicon-plus plus"></i>
     <span class="plus">Add Item</span>
@@ -87,10 +88,12 @@
           Remove Item
         </span>
       </span>
+      <hr class="hr-between-items">
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
-    <h2>Education</h2>
+    <h3>Education</h3>
+    <hr>
     <span ng-click="addField('workingExperience')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
       <span class="plus">Add Item</span>
@@ -121,10 +124,12 @@
           Remove Item
         </span>
       </span>
+      <hr class="hr-between-items">
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.languages = true" ng-mouseleave="showButtons.languages = false">
-    <h2>Languages</h2>
+    <h3>Languages</h3>
+    <hr>
     <span ng-click="addField('workingExperience')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
       <span class="plus">Add Item</span>
@@ -147,12 +152,14 @@
           Remove Item
         </span>
       </span>
+        <hr class="hr-between-items">
       </div>
     </div>
   </section>
   <section class="hide-buttons space" ng-mouseenter="showButtons.proSkills = true"
            ng-mouseleave="showButtons.proSkills = false">
-    <h2>Professional Skills</h2>
-    <div contenteditable="true" class="free" placeholder="e.g. team player">{{skills}}</div>
+    <h3>Professional skills</h3>
+    <hr>
+    <div contenteditable="true" placeholder="e.g. team player" class="skills-section">{{skills}}</div>
   </section>
 </article>
