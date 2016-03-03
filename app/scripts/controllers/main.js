@@ -141,6 +141,12 @@
     };
   });
 
+  app.filter('dateFilter', function () {
+    return function (input) {
+      return moment(input);
+    }
+  });
+
 })
 ();
 
