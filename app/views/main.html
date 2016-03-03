@@ -66,12 +66,13 @@
         </div>
           <span>From:
           <label>
-            <input type="date"/>
+            <span date-picker date={{item.dateStart}} show={{showButtons.work}}></span>
           </label>
         </span>
         <span>To:
           <label>
-            <input type="date"/>
+            <span date-picker date={{item.dateEnd}} show={{showButtons.work}}></span>
+
             <span><input type="checkbox"/>I currently work here</span>
           </label>
         </span>
@@ -104,10 +105,10 @@
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
       <span>From:<label>
-        <input type="date">
+        <span date-picker date={{item.dateStart}} show={{showButtons.education}}></span>
       </label></span>
       <span>To: <label>
-        <input type="date">
+        <span date-picker date={{item.dateEnd}} show={{showButtons.education}}></span>
       </label></span>
         <div>
           <div contenteditable="true" placeholder="description">{{item.description}}</div>
