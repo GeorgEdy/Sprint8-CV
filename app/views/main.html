@@ -68,14 +68,16 @@
         </div>
           <span>From:
           <label>
-            <input type="date"/>
+            <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
+            <span>{{item.dateStart}}</span>
           </label>
         </span>
         <div class="clearfix"></div>
         <span>To:
           <label>
-            <input type="date"/>
-            <span><input type="checkbox"/>I currently work here</span>
+            <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
+            <span ng-show="!showButtons.work">{{item.dateStart}}</span>
+            <span ng-show="showButtons.work"><input type="checkbox"/>To Present</span>
           </label>
         </span>
         <div>
@@ -83,15 +85,15 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <div class=" row" data-id={{$index}} ng-click="deleteField('workingExperience', $event, $index)"
+      <span data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
             ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
-        <i class="glyphicon glyphicon-minus minus"></i>
-        <span class="minus">
-          Remove Item
+          <i class="glyphicon glyphicon-minus minus"></i>
+          <span class="minus">
+            Remove Item
+          </span>
         </span>
-      </div>
-      <hr class="hr-between-items">
     </div>
+    <hr class="hr-between-items">
   </section>
   <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
     <h3>Education</h3>
@@ -109,12 +111,17 @@
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
       <span>From:<label>
+        <<<<<<< HEAD
+        <span date-picker date={{item.dateStart}} show={{showButtons.education}}></span>
+      </label></span>
+        =======
         <input type="date">
-      </label>
-      </span>
+        </label>
+        </span>
         <div class="clearfix"></div>
+        >>>>>>> 796a3b652a9348d46726843fc2659b437e0748b7
       <span>To: <label>
-        <input type="date">
+        <span date-picker date={{item.dateEnd}} show={{showButtons.education}}></span>
       </label></span>
         <div>
           <div contenteditable="true" placeholder="description">{{item.description}}</div>
