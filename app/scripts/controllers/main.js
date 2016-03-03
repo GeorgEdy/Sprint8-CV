@@ -8,6 +8,7 @@
 
     $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
     $scope.cvName = 'Untitled CV';
+    $scope.template = 'view/spanDate.html';
     $scope.personalDetails = {
       name: 'Ghinea Razvan',
       currPos: '',
@@ -65,16 +66,16 @@
       }
     };
 
-    $scope.deleteField = function (name, event) {
-      var index = $(event.target).data('id');
+    $scope.deleteField = function (name, event, index) {
       if (name === 'workingExperience') {
+        alert(index);
         $scope.workingExperience.splice(index, 1);
       }
     };
 
   });
 
-  //services
+//services
 
   app.factory('FieldActions', function () {
     return (function () {
@@ -101,11 +102,9 @@
     });
   });
 
-  app.directive('datePicker', function ($compile, $templateCache) {
+  app.directive('datePicker', function () {
     return {
       replace: true,
-      transclude: true,
-      template: '<span><span ng-include="template"></span></span>',
       scope: {
         dateValue: '@dateValue'
       },
@@ -114,18 +113,19 @@
         attributes.$observe('show', function (value) {
           //scope.template = (value === true) ? : 'views/spanDate.html';
           if (value === true) {
-            $scope.template = 'views/input.html';
+            var span = document.createElement('span');
           } else {
             $scope.template = 'views/spanDate.html';
           }
-          //$scope.$apply();
-          $compile(element.contents())($scope);
-          console.log(value, $scope.template);
+
         });
 
+        element.on('click', function () {
+        });
       }
     };
   });
 
-})();
+})
+();
 
