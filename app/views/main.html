@@ -72,6 +72,7 @@
             <span>{{item.dateStart}}</span>
           </label>
         </span>
+        <div class="clearfix"></div>
         <span>To:
           <label>
             <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
@@ -110,8 +111,15 @@
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
       <span>From:<label>
+        <<<<<<< HEAD
         <span date-picker date={{item.dateStart}} show={{showButtons.education}}></span>
       </label></span>
+        =======
+        <input type="date">
+        </label>
+        </span>
+        <div class="clearfix"></div>
+        >>>>>>> 796a3b652a9348d46726843fc2659b437e0748b7
       <span>To: <label>
         <span date-picker date={{item.dateEnd}} show={{showButtons.education}}></span>
       </label></span>
@@ -120,7 +128,7 @@
         </div>
       </div>
       <div class="clearfix"></div>
-      <div class="row" data-id={{$index}} ng-click="deleteField('education', $event)"
+      <div class="row" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
            ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
         <i class="glyphicon glyphicon-minus minus"></i>
         <span class="minus">
@@ -144,12 +152,12 @@
         <span class="col-md-2">Writing</span>
       </div>
       <div class="row hide-buttons">
-        <div contenteditable="true" placeholder="Name" class="col-md-3">{{item.name}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.understanding}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.speaking}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.writing}}</div>
+        <div contenteditable="true" placeholder="Name" class="col-md-3 language">{{item.name}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3 language">{{item.understanding}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3 language">{{item.speaking}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3 language">{{item.writing}}</div>
         <div class="clearfix"></div>
-        <div data-id={{$index}} ng-click="deleteField('languages', $event)"
+        <div data-id={{$index}} ng-click="deleteField('languages', $event, $index)"
              ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
           <i class="glyphicon glyphicon-minus minus"></i>
         <span class="minus">
