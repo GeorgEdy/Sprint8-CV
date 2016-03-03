@@ -110,19 +110,20 @@
         <div>
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
-      <span>From:<label>
-        <<<<<<< HEAD
-        <span date-picker date={{item.dateStart}} show={{showButtons.education}}></span>
-      </label></span>
-        =======
-        <input type="date">
-        </label>
+       <span>From:
+          <label>
+            <input type="date" value={{item.dateStart}} ng-show="showButtons.education">
+            <span>{{item.dateStart}}</span>
+          </label>
         </span>
         <div class="clearfix"></div>
-        >>>>>>> 796a3b652a9348d46726843fc2659b437e0748b7
-      <span>To: <label>
-        <span date-picker date={{item.dateEnd}} show={{showButtons.education}}></span>
-      </label></span>
+        <span>To:
+          <label>
+            <input type="date" value={{item.dateStart}} ng-show="showButtons.education">
+            <span ng-show="!showButtons.education">{{item.dateStart}}</span>
+            <span ng-show="showButtons.education"><input type="checkbox"/>To Present</span>
+          </label>
+        </span>
         <div>
           <div contenteditable="true" placeholder="description">{{item.description}}</div>
         </div>
