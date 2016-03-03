@@ -4,15 +4,15 @@
          src="https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
          alt="Resume photo" title="Please upload a photo"/>
     <div>
-      <h3 contenteditable="true" placeholder="Name">{{ personalDetails.name }}</h3>
-      <h4 contenteditable="true" placeholder="Current position">{{ personalDetails.currPos }}</h4>
+      <h3 contenteditable="true" placeholder="Name">{{ data.personalDetails.name }}</h3>
+      <h4 contenteditable="true" placeholder="Current position">{{ data.personalDetails.currPos }}</h4>
     </div>
     <div class="about-section">
       <hr>
       <h4><i class="glyphicon glyphicon-user"></i>About me</h4>
       <p contenteditable="true"
          placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-        {{ personalDetails.aboutMe }}
+        {{ data.personalDetails.aboutMe }}
       </p>
     </div>
     <div class="contact-section">
@@ -20,19 +20,19 @@
       <h4>Contact Info</h4>
       <div class="contact-phone">
         <i class="glyphicon glyphicon-earphone"></i>
-        <span contenteditable="true" placeholder="Phone number">{{ personalDetails.phoneNumber }}</span>
+        <span contenteditable="true" placeholder="Phone number">{{ data.personalDetails.phoneNumber }}</span>
       </div>
       <div class="contact-address">
         <i class="glyphicon glyphicon-map-marker"></i>
-        <span contenteditable="true" placeholder="Address">{{ personalDetails.address }}</span>
+        <span contenteditable="true" placeholder="Address">{{ data.personalDetails.address }}</span>
       </div>
       <div class="contact-email">
         <i class="glyphicon glyphicon-envelope"></i>
-        <span contenteditable="true" placeholder="E-mail">{{ personalDetails.email }}</span>
+        <span contenteditable="true" placeholder="E-mail">{{ data.personalDetails.email }}</span>
       </div>
       <div class="contact-website">
         <i class="glyphicon glyphicon-globe"></i>
-        <span contenteditable="true" placeholder="Website">{{ personalDetails.website }}</span>
+        <span contenteditable="true" placeholder="Website">{{ data.personalDetails.website }}</span>
       </div>
     </div>
     <div class="social-section">
@@ -40,11 +40,11 @@
       <h4>Social Media</h4>
       <div class="social-skype">
         <i class="fa fa-skype"></i>
-        <span contenteditable="true" placeholder="Skype ID">{{ personalDetails.skype }}</span>
+        <span contenteditable="true" placeholder="Skype ID">{{ data.personalDetails.skype }}</span>
       </div>
       <div class="social-linkedin">
         <i class="fa fa-linkedin-square"></i>
-        <span contenteditable="true" placeholder="LinkedIn profile">{{ personalDetails.linkedin }}</span>
+        <span contenteditable="true" placeholder="LinkedIn profile">{{ data.personalDetails.linkedin }}</span>
       </div>
     </div>
   </aside>
@@ -57,7 +57,7 @@
     <i class="glyphicon glyphicon-plus plus"></i>
     <span class="plus">Add Item</span>
     </span>
-    <div ng-repeat="item in workingExperience">
+    <div ng-repeat="item in data.workingExperience">
       <i class=""></i>
       <div class="pull-left bulleted-text">
         <div contenteditable="true" placeholder="Position" class="fa fa-circle">{{item.position}}</div>
@@ -85,23 +85,24 @@
       </div>
       <div class="clearfix"></div>
       <span data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
+
             ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
         <i class="glyphicon glyphicon-minus minus"></i>
         <span class="minus">
           Remove Item
         </span>
-      </span>
+      </div>
       <hr class="hr-between-items">
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
     <h3>Education</h3>
     <hr>
-    <span ng-click="addField('workingExperience')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+    <span ng-click="addField('education')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
       <span class="plus">Add Item</span>
     </span>
-    <div ng-repeat="item in education">
+    <div ng-repeat="item in data.education">
       <div class="pull-left bulleted-text">
         <div contenteditable="true" placeholder="Degree" class="fa fa-circle">{{item.degree}}</div>
       </div>
@@ -120,41 +121,42 @@
         </div>
       </div>
       <div class="clearfix"></div>
-            <span data-id={{$index}} ng-click="deleteField('workingExperience', $event)"
-                  ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+      <div class="row" data-id={{$index}} ng-click="deleteField('education', $event)"
+           ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
         <i class="glyphicon glyphicon-minus minus"></i>
         <span class="minus">
           Remove Item
         </span>
-      </span>
+      </div>
       <hr class="hr-between-items">
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.languages = true" ng-mouseleave="showButtons.languages = false">
     <h3>Languages</h3>
     <hr>
-    <span ng-click="addField('workingExperience')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
+    <span ng-click="addField('languages')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
       <span class="plus">Add Item</span>
     </span>
-    <div ng-repeat="item in languages">
+    <div ng-repeat="item in data.languages">
       <div class="row">
         <span class="col-md-2 margins">Understanding</span>
         <span class="col-md-2 both-margins">Speaking</span>
         <span class="col-md-2">Writing</span>
       </div>
       <div class="row hide-buttons">
-        <div contenteditable="true" placeholder="Name" class="col-md-2">{{item.name}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.understanding}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.speaking}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-2">{{item.writing}}</div>
-        <span data-id={{$index}} ng-click="deleteField('workingExperience', $event)"
-              ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
-        <i class="glyphicon glyphicon-minus minus"></i>
+        <div contenteditable="true" placeholder="Name" class="col-md-3">{{item.name}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.understanding}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.speaking}}</div>
+        <div contenteditable="true" placeholder="Level" class="col-md-3">{{item.writing}}</div>
+        <div class="clearfix"></div>
+        <div data-id={{$index}} ng-click="deleteField('languages', $event)"
+             ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
+          <i class="glyphicon glyphicon-minus minus"></i>
         <span class="minus">
           Remove Item
         </span>
-      </span>
+        </div>
         <hr class="hr-between-items">
       </div>
     </div>
@@ -163,6 +165,6 @@
            ng-mouseleave="showButtons.proSkills = false">
     <h3>Professional skills</h3>
     <hr>
-    <div contenteditable="true" placeholder="e.g. team player" class="skills-section">{{skills}}</div>
+    <div contenteditable="true" placeholder="e.g. team player" class="skills-section">{{data.skills}}</div>
   </section>
 </article>

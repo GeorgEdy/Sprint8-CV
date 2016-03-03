@@ -4,9 +4,11 @@
   var app = angular.module('sprint8App');
 
   //controllers
-  app.controller('MainCtrl', function ($scope, FieldActions) {
+  app.controller('MainCtrl', function ($scope) {
 
     $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
+    <<<<<<<
+    HEAD
     $scope.cvName = 'Untitled CV';
     $scope.template = 'view/spanDate.html';
     $scope.personalDetails = {
@@ -21,22 +23,46 @@
       linkedin: ''
     };
     $scope.workingExperience = [
-      {
-        position: 'Junior Programmer',
-        company: 'Umbrella Corporation',
-        description: 'Programming killer software',
-        dateStart: '2010-05-10',
-        dateEnd: '2014-05-10'
-      },
-      {
-        position: 'Manager Assistant',
-        company: 'Red Box',
-        description: 'No ideea what I am doing here',
-        dateStart: '2014-05-10',
-        dateEnd: '2015-05-10'
-      }
-    ];
-    $scope.education = [
+    === === =
+      $scope.data = {
+        cvName: 'Untitled CV',
+        personalDetails: {
+          name: 'Gogu Caldararu',
+          currPos: '',
+          aboutMe: 'Je suis smecher',
+          phoneNumber: '',
+          address: 'Cucuietii din deal',
+          email: '',
+          website: '',
+          skype: '',
+          linkedin: ''
+        },
+        workingExperience: [
+        >>> >>> > 75024159f4a2fa667c1a50168478e149dedb508e
+        {
+          position: 'Junior Programmer',
+          company: 'Umbrella Corporation',
+          description: 'Programming killer software',
+          dateStart: '2010-05-10',
+          dateEnd: '2014-05-10'
+        },
+    {
+      position: 'Manager Assistant',
+        company
+    :
+      'Red Box',
+        description
+    :
+      'No ideea what I am doing here',
+        dateStart
+    :
+      '2014-05-10',
+        dateEnd
+    :
+      '2015-05-10'
+    }
+    ],
+    education: [
       {
         degree: 'BAC',
         school: 'Numaru 9',
@@ -44,39 +70,59 @@
         dateStart: '2014-05-10',
         dateEnd: '2015-05-10'
       }
-    ];
-    $scope.languages = [
+    ],
+      languages
+    :
+    [
       {
         name: 'english',
         understanding: 'C1',
         speaking: 'B2',
         writing: 'B2'
       }
-    ];
-    $scope.skills = 'smecherie';
+    ],
+      skills
+    :
+    'smecherie'
+  }
+    ;
 
     $scope.addField = function (name) {
-      //FieldActions.addField($scope, name);
       if (name === 'workingExperience') {
-        $scope.workingExperience.push({
+        $scope.data.workingExperience.push({
           position: '',
           company: '',
           description: ''
+        })
+      } else if (name === 'education') {
+        $scope.data.education.push({
+          degree: '',
+          school: '',
+          description: ''
+        })
+      } else {
+        $scope.data.languages.push({
+          name: '',
+          understanding: '',
+          speaking: '',
+          writing: ''
         })
       }
     };
 
     $scope.deleteField = function (name, event, index) {
       if (name === 'workingExperience') {
-        alert(index);
-        $scope.workingExperience.splice(index, 1);
+
+        $scope.data.workingExperience.splice(index, 1);
+      } else if (name === 'education') {
+        $scope.data.education.splice(index, 1);
+      } else {
+        $scope.data.languages.splice(index, 1);
       }
     };
 
   });
-
-//services
-
+  
   app.factory('FieldActions', function () {
     return (function () {
       var addField = function ($scope, name) {
