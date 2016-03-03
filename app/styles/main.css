@@ -47,10 +47,13 @@ li[contenteditable=true], h3[contenteditable=true] {
 
 .both-margins {
   margin: 0 28px;
+  border-right: 1px solid #0091EA;
+  border-left: 1px solid #0091EA;
 }
 
 .margins {
   margin-left: 14%;
+  border-left: 1px solid #0091EA;
 }
 
 .margin {
@@ -75,7 +78,9 @@ li[contenteditable=true], h3[contenteditable=true] {
   float:right;
   margin-top:-10px;
 }
-
+.language[contenteditable=true] {
+  width: 110px;
+}
 [contenteditable=true]:hover {
   /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 }
@@ -100,6 +105,7 @@ section > h3 {
   height: 1px;
   background-image: linear-gradient(to right, rgba( 0,145,234, 0), rgba( 0,145,234, 1), rgba( 0,145,234, 0));
 }
+
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
