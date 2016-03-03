@@ -58,8 +58,9 @@
     <span class="plus">Add Item</span>
     </span>
     <div ng-repeat="item in workingExperience">
-      <div class="pull-left">
-        <div contenteditable="true" placeholder="Position">{{item.position}}</div>
+      <i class=""></i>
+      <div class="pull-left bulleted-text">
+        <div contenteditable="true" placeholder="Position" class="fa fa-circle">{{item.position}}</div>
       </div>
       <div class="pull-right">
         <div>
@@ -99,8 +100,8 @@
       <span class="plus">Add Item</span>
     </span>
     <div ng-repeat="item in education">
-      <div class="pull-left">
-        <div contenteditable="true" placeholder="Degree">{{item.degree}}</div>
+      <div class="pull-left bulleted-text">
+        <div contenteditable="true" placeholder="Degree" class="fa fa-circle">{{item.degree}}</div>
       </div>
       <div class="pull-right">
         <div>

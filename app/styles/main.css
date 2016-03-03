@@ -120,7 +120,7 @@ section > h3 {
 
 .sidebar-container p {
   margin: 0 10px 0 10px;
-  text-align: justify;
+  text-align: center;
 }
 
 .about-section hr,
@@ -163,7 +163,15 @@ section > h3 {
   margin-left: 13px;
   text-align: left;
 }
+section .fa-circle {
+  color: #0091EA;
+  margin-right: 10px;
+}
 
+.bulleted-text {
+  font-weight: 600;
+  color: #0091EA;
+}
 /*------------------------------------------------LIST VIEW CSS---------------------------------------------------------*/
 .list-view {
   background-color: dimgray;
@@ -198,7 +206,7 @@ section > h3 {
 }
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
 .header-nav {
-  margin-left: -30px;
+  margin-left: -25px;
 }
 .document-title {
   font-size: 30px;
