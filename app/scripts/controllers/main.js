@@ -109,20 +109,18 @@
       scope: {
         dateValue: '@dateValue'
       },
-      link: function (scope, element, attributes) {
-        scope.dateValue = attributes.date;
+      link: function ($scope, element, attributes) {
+        $scope.dateValue = attributes.date;
         attributes.$observe('show', function (value) {
           //scope.template = (value === true) ? : 'views/spanDate.html';
           if (value === true) {
-            $compile(element.contents())(scope);
-            scope.template = 'views/input.html';
+            $scope.template = 'views/input.html';
           } else {
-            $compile(element.contents())(scope);
-            scope.template = 'views/spanDate.html';
+            $scope.template = 'views/spanDate.html';
           }
-
-          $compile(element.contents())(scope);
-          console.log(value, scope.template);
+          //$scope.$apply();
+          $compile(element.contents())($scope);
+          console.log(value, $scope.template);
         });
 
       }
