@@ -68,8 +68,8 @@
         </div>
           <span>From:
           <label>
-            <input ng-model="item.dateStart" type="date" value={{item.dateStart}} ng-show="showButtons.work">
-            <span ng-class="showButtons.work ? ''">{{item.dateStart}}</span>
+            <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
+            <span>{{item.dateStart}}</span>
           </label>
         </span>
         <span>To:
@@ -85,15 +85,14 @@
       </div>
       <div class="clearfix"></div>
       <span data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
-
             ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
-        <i class="glyphicon glyphicon-minus minus"></i>
-        <span class="minus">
-          Remove Item
+          <i class="glyphicon glyphicon-minus minus"></i>
+          <span class="minus">
+            Remove Item
+          </span>
         </span>
-      </div>
-      <hr class="hr-between-items">
     </div>
+    <hr class="hr-between-items">
   </section>
   <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
     <h3>Education</h3>

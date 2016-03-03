@@ -7,38 +7,21 @@
   app.controller('MainCtrl', function ($scope) {
 
     $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
-    <<<<<<<
-    HEAD
-    $scope.cvName = 'Untitled CV';
-    $scope.template = 'view/spanDate.html';
-    $scope.personalDetails = {
-      name: 'Ghinea Razvan',
-      currPos: '',
-      aboutMe: 'Je suis smecher',
-      phoneNumber: '',
-      address: 'Cucuietii din deal',
-      email: '',
-      website: '',
-      skype: '',
-      linkedin: ''
-    };
-    $scope.workingExperience = [
-    === === =
-      $scope.data = {
-        cvName: 'Untitled CV',
-        personalDetails: {
-          name: 'Gogu Caldararu',
-          currPos: '',
-          aboutMe: 'Je suis smecher',
-          phoneNumber: '',
-          address: 'Cucuietii din deal',
-          email: '',
-          website: '',
-          skype: '',
-          linkedin: ''
-        },
-        workingExperience: [
-        >>> >>> > 75024159f4a2fa667c1a50168478e149dedb508e
+
+    $scope.data = {
+      cvName: 'Untitled CV',
+      personalDetails: {
+        name: 'Gogu Caldararu',
+        currPos: '',
+        aboutMe: 'Je suis smecher',
+        phoneNumber: '',
+        address: 'Cucuietii din deal',
+        email: '',
+        website: '',
+        skype: '',
+        linkedin: ''
+      },
+      workingExperience: [
         {
           position: 'Junior Programmer',
           company: 'Umbrella Corporation',
@@ -46,46 +29,33 @@
           dateStart: '2010-05-10',
           dateEnd: '2014-05-10'
         },
-    {
-      position: 'Manager Assistant',
-        company
-    :
-      'Red Box',
-        description
-    :
-      'No ideea what I am doing here',
-        dateStart
-    :
-      '2014-05-10',
-        dateEnd
-    :
-      '2015-05-10'
-    }
-    ],
-    education: [
-      {
-        degree: 'BAC',
-        school: 'Numaru 9',
-        description: 'best school ever',
-        dateStart: '2014-05-10',
-        dateEnd: '2015-05-10'
-      }
-    ],
-      languages
-    :
-    [
-      {
-        name: 'english',
-        understanding: 'C1',
-        speaking: 'B2',
-        writing: 'B2'
-      }
-    ],
-      skills
-    :
-    'smecherie'
-  }
-    ;
+        {
+          position: 'Manager Assistant',
+          company: 'Red Box',
+          description: 'No ideea what I am doing here',
+          dateStart: '2014-05-10',
+          dateEnd: '2015-05-10'
+        }
+      ],
+      education: [
+        {
+          degree: 'BAC',
+          school: 'Numaru 9',
+          description: 'best school ever',
+          dateStart: '2014-05-10',
+          dateEnd: '2015-05-10'
+        }
+      ],
+      languages: [
+        {
+          name: 'english',
+          understanding: 'C1',
+          speaking: 'B2',
+          writing: 'B2'
+        }
+      ],
+      skills: 'smecherie'
+    };
 
     $scope.addField = function (name) {
       if (name === 'workingExperience') {
@@ -122,7 +92,7 @@
     };
 
   });
-  
+
   app.factory('FieldActions', function () {
     return (function () {
       var addField = function ($scope, name) {
