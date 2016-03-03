@@ -7,7 +7,6 @@
   app.controller('MainCtrl', function ($scope) {
 
     $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
-
     $scope.data = {
       cvName: 'Untitled CV',
       personalDetails: {
