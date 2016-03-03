@@ -69,7 +69,7 @@
           <span>From:
           <label>
             <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
-            <span>{{item.dateStart}}</span>
+            <span ng-show="!showButtons.work">{{item.dateStart}}</span>
           </label>
         </span>
         <div class="clearfix"></div>
@@ -113,7 +113,7 @@
        <span>From:
           <label>
             <input type="date" value={{item.dateStart}} ng-show="showButtons.education">
-            <span>{{item.dateStart}}</span>
+            <span ng-show="!showButtons.education">{{item.dateStart}}</span>
           </label>
         </span>
         <div class="clearfix"></div>
