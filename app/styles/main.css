@@ -58,9 +58,18 @@
 }
 
 [contenteditable=true] {
-  width: auto;
+  width: 100px;
   transition: .05s ease-in-out;
   outline: none;
+}
+
+.pull-right {
+  width: 70%;
+}
+
+.remove-button {
+  float:right;
+  margin-top:-10px;
 }
 
 [contenteditable=true]:hover {
