@@ -73,9 +73,7 @@
       }
     };
 
-    $scope.deleteField = function (name, event) {
-      var index = $(event.target).data('id');
-      console.log(index);
+    $scope.deleteField = function (name, event, index) {
       if (name === 'workingExperience') {
         $scope.data.workingExperience.splice(index, 1);
       } else if (name === 'education') {
