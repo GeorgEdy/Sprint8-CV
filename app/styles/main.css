@@ -144,8 +144,13 @@ section > h3 {
   margin-top: 5px;
 }
 
-.sidebar-container h3 {
+.sidebar-container h3,
+.upload-btn {
   color: #0091EA;
+}
+
+.upload-btn {
+  border: none
 }
 
 .sidebar-container h2,
