@@ -37,12 +37,14 @@ input[type="date"]:hover {
   padding: 0;
   opacity: 0;
   transition: all 0.2s;
+  outline:none;
 }
 
 .visible {
   margin: 0;
   opacity: 1;
   transition: all 0.2s;
+  outline:none;
 }
 
 [contenteditable=true]:empty:before {
@@ -277,8 +279,10 @@ section .fa-circle {
   box-shadow: 0 19px 15px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.create-document:hover {
-
+.existing-document:hover {
+   background-color: rgba(179,229,252,1);
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
 }
 
 .create-document i {
@@ -293,7 +297,17 @@ section .fa-circle {
 .existing-document h2 {
   line-height: 10;
 }
-
+.list-btns {
+  position: absolute;
+  top:40%;
+  left:29%;
+}
+.existing-document-wrapper {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  display: inline-block;
+}
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
 
 .header-nav {
