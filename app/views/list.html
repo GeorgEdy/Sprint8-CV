@@ -1,7 +1,22 @@
 <div class="list-view container-fluid">
-
   <div class="create-document"><i class="glyphicon glyphicon-plus"></i></div>
-  <div ng-repeat='document in data' class="existing-document">
-    <h2>{{document.title}}</h2>
+
+  <div class="existing-document-wrapper">
+    <div class="existing-document">
+      <h2>Document title</h2>
+    </div>
+    <div class="list-btns">
+      <a href="#" class="btn btn-warning btn-lg edit-btn">Edit</a>
+      <a href="#" class="btn btn-danger btn-lg delete-btn">Delete</a>
+    </div>
+  </div>
+  <div class="existing-document-wrapper">
+    <div class="existing-document">
+      <h2>Document title</h2>
+    </div>
+    <div class="list-btns">
+      <a href="#" class="btn btn-warning btn-lg edit-btn">Edit</a>
+      <a href="#" class="btn btn-danger btn-lg delete-btn">Delete</a>
+    </div>
   </div>
 </div>

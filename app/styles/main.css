@@ -37,12 +37,14 @@ input[type="date"]:hover {
   padding: 0;
   opacity: 0;
   transition: all 0.2s;
+  outline:none;
 }
 
 .visible {
   margin: 0;
   opacity: 1;
   transition: all 0.2s;
+  outline:none;
 }
 
 [contenteditable=true]:empty:before {
@@ -64,11 +66,15 @@ li[contenteditable=true], h3[contenteditable=true] {
   margin: 0 28px;
   border-right: 1px solid #0091EA;
   border-left: 1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
 }
 
 .margins {
   margin-left: 14%;
   border-left: 1px solid #0091EA;
+  border-right: 0;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+
 }
 
 .margin {
@@ -95,11 +101,28 @@ li[contenteditable=true], h3[contenteditable=true] {
 }
 
 .language[contenteditable=true] {
-  width: 110px;
+  width: 96px;
+  text-align: center;
+}
+
+.lang[contenteditable=true] {
+  width: 100px;
+  text-align: left;
+}
+
+.parent {
+  position: relative;
 }
 
 [contenteditable=true]:hover {
   /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+}
+
+.rmv-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
 }
 
 [contenteditable=true]:hover {
@@ -112,7 +135,7 @@ section > hr {
   border-top: medium double #0091EA;
   color: #0091EA;
   text-align: center;
-  margin: 5px 0 0 0;
+  margin: 5px 0 15px 0;
 }
 
 section > h3 {
@@ -127,6 +150,21 @@ section > h3 {
   background-image: linear-gradient(to right, rgba(0, 145, 234, 0), rgba(0, 145, 234, 1), rgba(0, 145, 234, 0));
 }
 
+.lang-margin {
+  margin-left: -15px;
+  margin-right:-5px;
+  border-left:0;
+  border-right:1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+}
+
+.hr-margin {
+  margin-top:30px;
+}
+
+.plus-btn {
+  position: absolute;
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
@@ -144,8 +182,13 @@ section > h3 {
   margin-top: 5px;
 }
 
-.sidebar-container h3 {
+.sidebar-container h3,
+.upload-btn {
   color: #0091EA;
+}
+
+.upload-btn {
+  border: none
 }
 
 .sidebar-container h2,
@@ -241,8 +284,10 @@ section .fa-circle {
   box-shadow: 0 19px 15px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.create-document:hover {
-
+.existing-document:hover {
+   background-color: rgba(179,229,252,1);
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
 }
 
 .create-document i {
@@ -257,7 +302,17 @@ section .fa-circle {
 .existing-document h2 {
   line-height: 10;
 }
-
+.list-btns {
+  position: absolute;
+  top:40%;
+  left:29%;
+}
+.existing-document-wrapper {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  display: inline-block;
+}
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
 
 .header-nav {
