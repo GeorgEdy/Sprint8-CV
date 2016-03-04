@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -49,6 +49,8 @@
           <li>
             <button class="fa fa-undo fa-lg fa-2x undo-btn"></button>
           </li>
+          <li>
+          </li>
         </ul>
       </div>
     </div>
@@ -88,11 +90,13 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/jspdf/dist/jspdf.debug.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/services/storageService.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/list.js"></script>
 <script src="scripts/controllers/navbar.js"></script>

@@ -8,10 +8,6 @@
  * Controller of the sprint8App
  */
 angular.module('sprint8App')
-  .controller('ListCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ListCtrl', function ($scope, StorageService) {
+    $scope.data = StorageService.data;
   });
