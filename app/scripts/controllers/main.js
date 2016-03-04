@@ -10,6 +10,7 @@
     $scope.data = {
       cvName: 'Untitled CV',
       personalDetails: {
+        pictureSrc: 'https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
         name: 'Gogu Caldararu',
         currPos: '',
         aboutMe: 'Je suis smecher',
@@ -91,6 +92,19 @@
       } else {
         $scope.data.languages.splice(index, 1);
       }
+    };
+
+    $scope.imageUpload = function (event) {
+      var files = event.target.files;
+      var reader = new FileReader();
+      reader.onload = $scope.imageIsLoaded;
+      reader.readAsDataURL(files[0]);
+    };
+
+    $scope.imageIsLoaded = function (e) {
+      $scope.$apply(function () {
+        $scope.data.personalDetails.pictureSrc = e.target.result;
+      });
     };
 
   });
