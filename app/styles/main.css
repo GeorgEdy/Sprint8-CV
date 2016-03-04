@@ -64,11 +64,15 @@ li[contenteditable=true], h3[contenteditable=true] {
   margin: 0 28px;
   border-right: 1px solid #0091EA;
   border-left: 1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
 }
 
 .margins {
   margin-left: 14%;
   border-left: 1px solid #0091EA;
+  border-right: 0;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+
 }
 
 .margin {
@@ -147,7 +151,13 @@ section > h3 {
 .lang-margin {
   margin-left: -15px;
   margin-right:-5px;
+  border-left:0;
   border-right:1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+}
+
+.hr-margin {
+  margin-top:30px;
 }
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
