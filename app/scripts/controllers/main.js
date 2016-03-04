@@ -5,8 +5,8 @@
 
   //controllers
   app.controller('MainCtrl', function ($scope, StorageService) {
-      //$scope.currDocIndex = StorageService.currentDocIndex;
-      $scope.data = StorageService.data[StorageService.currentDocIndex];
+      $scope.currentDocIndex = StorageService.currentDocIndex;
+      $scope.data = StorageService.data[$scope.currentDocIndex];
       $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
       $scope.changeDocument = function (index) {
         $scope.data = StorageService.data[index];
@@ -83,6 +83,28 @@
       }
     };
   });
+
+  //app.directive('contenteditable', function () {
+  //  return {
+  //    require: 'ngModel',
+  //    link: function (scope, element, attrs, ctrl) {
+  //      // view -> model
+  //      element.bind('blur', function () {
+  //        scope.$apply(function () {
+  //          ctrl.$render();
+  //        });
+  //      });
+  //
+  //      // model -> view
+  //      ctrl.$render = function () {
+  //        element.html(ctrl.$viewValue);
+  //      };
+  //
+  //      // load init value from DOM
+  //      ctrl.$setViewValue(element.html());
+  //    }
+  //  };
+  //});
 
   app.filter('dateFilter', function () {
     return function (input, toPresent) {

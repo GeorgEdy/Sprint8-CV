@@ -1,22 +1,12 @@
 <div class="list-view container-fluid">
   <div class="create-document"><i class="glyphicon glyphicon-plus"></i></div>
 
-  <div class="existing-document-wrapper">
-    <div class="existing-document">
-      <h2>Document title</h2>
+  <a href="/">
+    <div class="existing-document-wrapper" ng-repeat="item in data" ng-click="changeDocument($index)">
+      <div class="existing-document">
+        <h2>{{item.cvName}}</h2>
+      </div>
+      <i ng-click="deleteDocument($index)" class="fa fa-times delete-document-button"></i>
     </div>
-    <div class="list-btns">
-      <a href="#" class="btn btn-warning btn-lg edit-btn">Edit</a>
-      <a href="#" class="btn btn-danger btn-lg delete-btn">Delete</a>
-    </div>
-  </div>
-  <div class="existing-document-wrapper">
-    <div class="existing-document">
-      <h2>Document title</h2>
-    </div>
-    <div class="list-btns">
-      <a href="#" class="btn btn-warning btn-lg edit-btn">Edit</a>
-      <a href="#" class="btn btn-danger btn-lg delete-btn">Delete</a>
-    </div>
-  </div>
+  </a>
 </div>

@@ -2,7 +2,7 @@ var app = angular.module('sprint8App');
 
 app.factory('StorageService', function () {
   var data = [];
-  var currentDocumentIndex = 0;
+  var currentDocIndex = 0;
   var initialData = {
     cvName: 'First CV',
     personalDetails: {
@@ -113,6 +113,6 @@ app.factory('StorageService', function () {
   data.push(initialData2);
   return {
     data: data,
-    currentDocIndex: currentDocumentIndex
+    currentDocIndex: currentDocIndex
   }
 });
