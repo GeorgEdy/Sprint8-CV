@@ -7,7 +7,6 @@
   app.controller('MainCtrl', function ($scope) {
 
     $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
-
     $scope.data = {
       cvName: 'Untitled CV',
       personalDetails: {
@@ -26,15 +25,17 @@
           position: 'Junior Programmer',
           company: 'Umbrella Corporation',
           description: 'Programming killer software',
-          dateStart: '2010-05-10',
-          dateEnd: '2014-05-10'
+          dateStart: new Date(2017, 10, 10),
+          dateEnd: new Date(2009, 10, 10),
+          toPresent: false
         },
         {
           position: 'Manager Assistant',
           company: 'Red Box',
           description: 'No ideea what I am doing here',
-          dateStart: '2014-05-10',
-          dateEnd: '2015-05-10'
+          dateStart: new Date(2009, 10, 10),
+          dateEnd: new Date(2013, 10, 10),
+          toPresent: false
         }
       ],
       education: [
@@ -42,8 +43,9 @@
           degree: 'BAC',
           school: 'Numaru 9',
           description: 'best school ever',
-          dateStart: '2014-05-10',
-          dateEnd: '2015-05-10'
+          dateStart: new Date(2004, 10, 10),
+          dateEnd: new Date(2006, 10, 10),
+          toPresent: false
         }
       ],
       languages: [
@@ -121,25 +123,18 @@
   app.directive('datePicker', function () {
     return {
       replace: true,
-      scope: {
-        dateValue: '@dateValue'
-      },
-      link: function ($scope, element, attributes) {
-        $scope.dateValue = attributes.date;
-        attributes.$observe('show', function (value) {
-          //scope.template = (value === true) ? : 'views/spanDate.html';
-          if (value === true) {
-            var span = document.createElement('span');
-          } else {
-            $scope.template = 'views/spanDate.html';
-          }
-
-        });
-
-        element.on('click', function () {
-        });
+      //scope: {
+      //  dateValue: '@dateValue'
+      //},
+      link: function (scope, element, attr) {
       }
     };
+  });
+
+  app.filter('dateFilter', function () {
+    return function (input, toPresent) {
+      return toPresent ? "Present" : moment(input).format('DD.MM.YYYY');
+    }
   });
 
 })

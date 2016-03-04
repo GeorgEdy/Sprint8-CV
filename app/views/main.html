@@ -67,17 +67,22 @@
           <div contenteditable="true" placeholder="Company name and location">{{item.company}}</div>
         </div>
           <span>From:
-          <label>
-            <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
-            <span>{{item.dateStart}}</span>
+          <label class="date-label">
+            <input date-picker type="date"
+                   ng-model="item.dateStart"
+                   value={{item.dateStart}}
+                   ng-show="showButtons.work">
+            <span ng-show="!showButtons.work">{{item.dateStart | dateFilter}}</span>
           </label>
         </span>
         <div class="clearfix"></div>
         <span>To:
-          <label>
-            <input type="date" value={{item.dateStart}} ng-show="showButtons.work">
-            <span ng-show="!showButtons.work">{{item.dateStart}}</span>
-            <span ng-show="showButtons.work"><input type="checkbox"/>To Present</span>
+          <label class="date-label">
+            <input date-picker
+                   ng-model="item.dateEnd" type="date" value={{item.dateEnd}}
+                   ng-show="showButtons.work">
+            <span ng-show="!showButtons.work">{{item.dateEnd | dateFilter:item.toPresent}}</span>
+            <span ng-show="showButtons.work"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
           </label>
         </span>
         <div>
@@ -110,18 +115,23 @@
         <div>
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
-       <span>From:
+          <span>From:
           <label>
-            <input type="date" value={{item.dateStart}} ng-show="showButtons.education">
-            <span>{{item.dateStart}}</span>
+            <input date-picker type="date"
+                   ng-model="item.dateStart"
+                   value={{item.dateStart}}
+                   ng-show="showButtons.education">
+            <span ng-show="!showButtons.education">{{item.dateStart | dateFilter}}</span>
           </label>
         </span>
         <div class="clearfix"></div>
         <span>To:
           <label>
-            <input type="date" value={{item.dateStart}} ng-show="showButtons.education">
-            <span ng-show="!showButtons.education">{{item.dateStart}}</span>
-            <span ng-show="showButtons.education"><input type="checkbox"/>To Present</span>
+            <input date-picker
+                   ng-model="item.dateEnd" type="date" value={{item.dateEnd}}
+                   ng-show="showButtons.education">
+            <span ng-show="!showButtons.education">{{item.dateEnd | dateFilter:item.toPresent}}</span>
+            <span ng-show="showButtons.education"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
           </label>
         </span>
         <div>
