@@ -159,6 +159,10 @@ section > h3 {
 .hr-margin {
   margin-top:30px;
 }
+
+.plus-btn {
+  position: absolute;
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;

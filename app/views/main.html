@@ -53,10 +53,6 @@
   <section class="space" ng-mouseenter="showButtons.work = true" ng-mouseleave="showButtons.work = false">
     <h3>Work experience</h3>
     <hr>
-    <div ng-click="addField('workingExperience')" ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
-    <i class="glyphicon glyphicon-plus plus"></i>
-    <span class="plus">Add Item</span>
-    </div>
     <div class="parent" ng-repeat="item in data.workingExperience">
       <i class=""></i>
       <div class="pull-left bulleted-text">
@@ -93,21 +89,16 @@
       <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
             ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
           <i class="glyphicon glyphicon-minus minus"></i>
-          <span class="minus">
-            Remove Item
-          </span>
         </div>
       <hr class="hr-between-items">
-
+    </div>
+    <div class="plus-btn" ng-click="addField('workingExperience')" ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
+      <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.education = true" ng-mouseleave="showButtons.education = false">
     <h3>Education</h3>
     <hr>
-    <div ng-click="addField('education')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
-      <i class="glyphicon glyphicon-plus plus"></i>
-      <span class="plus">Add Item</span>
-    </div>
     <div class="parent" ng-repeat="item in data.education">
       <div class="pull-left bulleted-text">
         <div contenteditable="true" placeholder="Degree" class="fa fa-circle">{{item.degree}}</div>
@@ -141,22 +132,19 @@
         <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
              ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
           <i class="glyphicon glyphicon-minus minus"></i>
-        <span class="minus">
-          Remove Item
-        </span>
         </div>
+
       </div>
       <div class="clearfix"></div>
       <hr class="hr-between-items">
+    </div>
+    <div ng-click="addField('education')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+      <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
   <section class="space" ng-mouseenter="showButtons.languages = true" ng-mouseleave="showButtons.languages = false">
     <h3>Languages</h3>
     <hr>
-    <div ng-click="addField('languages')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
-      <i class="glyphicon glyphicon-plus plus"></i>
-      <span class="plus">Add Item</span>
-    </div>
       <div class="row">
         <span class="col-md-2 margins">Understanding</span>
         <span class="col-md-2 both-margins">Speaking</span>
@@ -173,12 +161,12 @@
         <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('languages', $event, $index)"
              ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
           <i class="glyphicon glyphicon-minus minus"></i>
-        <span class="minus">
-          Remove Item
-        </span>
         </div>
         <hr class="hr-between-items">
       </div>
+    </div>
+    <div ng-click="addField('languages')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
+      <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
   <section class="hide-buttons space" ng-mouseenter="showButtons.proSkills = true"
