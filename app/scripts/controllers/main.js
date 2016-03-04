@@ -95,31 +95,6 @@
 
   });
 
-  app.factory('FieldActions', function () {
-    return (function () {
-      var addField = function ($scope, name) {
-        if (name === 'workingExperience') {
-          $scope.workingExperience.push({
-            position: '',
-            company: '',
-            description: ''
-          });
-        }
-      };
-
-      var deleteField = function ($scope, name, index) {
-        if (name === 'workingExperience') {
-          $scope.workingExperience.splice(index, 1);
-        }
-      };
-
-      return {
-        addField: addField,
-        deleteField: deleteField
-      }
-    });
-  });
-
   app.directive('datePicker', function () {
     return {
       replace: true,
