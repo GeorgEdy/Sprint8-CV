@@ -157,13 +157,13 @@
       <i class="glyphicon glyphicon-plus plus"></i>
       <span class="plus">Add Item</span>
     </div>
-    <div class="parent" ng-repeat="item in data.languages">
       <div class="row">
         <span class="col-md-2 margins">Understanding</span>
         <span class="col-md-2 both-margins">Speaking</span>
         <span class="col-md-2 lang-margin">Writing</span>
         <hr class="hr-between-items  hr-margin">
       </div>
+    <div class="parent" ng-repeat="item in data.languages">
       <div class="row hide-buttons">
         <div contenteditable="true" placeholder="Name" class="col-md-4 lang">{{item.name}}</div>
         <div contenteditable="true" placeholder="Level" class="col-md-4 language">{{item.understanding}}</div>
