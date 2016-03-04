@@ -64,11 +64,15 @@ li[contenteditable=true], h3[contenteditable=true] {
   margin: 0 28px;
   border-right: 1px solid #0091EA;
   border-left: 1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
 }
 
 .margins {
   margin-left: 14%;
   border-left: 1px solid #0091EA;
+  border-right: 0;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+
 }
 
 .margin {
@@ -95,11 +99,28 @@ li[contenteditable=true], h3[contenteditable=true] {
 }
 
 .language[contenteditable=true] {
-  width: 110px;
+  width: 96px;
+  text-align: center;
+}
+
+.lang[contenteditable=true] {
+  width: 100px;
+  text-align: left;
+}
+
+.parent {
+  position: relative;
 }
 
 [contenteditable=true]:hover {
   /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+}
+
+.rmv-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
 }
 
 [contenteditable=true]:hover {
@@ -127,6 +148,21 @@ section > h3 {
   background-image: linear-gradient(to right, rgba(0, 145, 234, 0), rgba(0, 145, 234, 1), rgba(0, 145, 234, 0));
 }
 
+.lang-margin {
+  margin-left: -15px;
+  margin-right:-5px;
+  border-left:0;
+  border-right:1px solid #0091EA;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
+}
+
+.hr-margin {
+  margin-top:30px;
+}
+
+.plus-btn {
+  position: absolute;
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
