@@ -67,6 +67,7 @@
       $scope.imageIsLoaded = function (e) {
         $scope.$apply(function () {
           $scope.data.personalDetails.pictureSrc = e.target.result;
+          console.log($scope.data.personalDetails);
         });
       };
 
