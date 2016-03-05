@@ -114,9 +114,9 @@ li[contenteditable=true], h3[contenteditable=true] {
   position: relative;
 }
 
-[contenteditable=true]:hover {
-  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
-}
+/*[contenteditable=true]:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}*/
 
 .rmv-btn {
   position: absolute;
@@ -164,6 +164,7 @@ section > h3 {
 
 .plus-btn {
   position: absolute;
+  right: 3%;
 }
 
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
@@ -172,7 +173,6 @@ section > h3 {
   margin-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  /*box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);*/
   margin-bottom: 20px;
   border-radius: 6px;
 }
