@@ -37,14 +37,14 @@ input[type="date"]:hover {
   padding: 0;
   opacity: 0;
   transition: all 0.2s;
-  outline:none;
+  outline: none;
 }
 
 .visible {
   margin: 0;
   opacity: 1;
   transition: all 0.2s;
-  outline:none;
+  outline: none;
 }
 
 [contenteditable=true]:empty:before {
@@ -152,19 +152,20 @@ section > h3 {
 
 .lang-margin {
   margin-left: -15px;
-  margin-right:-5px;
-  border-left:0;
-  border-right:1px solid #0091EA;
+  margin-right: -5px;
+  border-left: 0;
+  border-right: 1px solid #0091EA;
   -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0, transparent), color-stop(0.5, #0091ea), color-stop(0.5, #0091ea), color-stop(1, transparent)) 0 100%;
 }
 
 .hr-margin {
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 .plus-btn {
   position: absolute;
 }
+
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
@@ -268,13 +269,18 @@ section .fa-circle {
   background-color: dimgray;
   width: 105%;
   height: 100%;
-  padding: 50px;
   margin: 0 -15px;
 }
 
+.documents-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
 .create-document, .existing-document {
-  width: 300px;
-  height: 400px;
+  width: 200px;
+  height: 270px;
   background-color: whitesmoke;
   border-radius: 6px;
   text-align: center;
@@ -282,37 +288,54 @@ section .fa-circle {
   margin: 10px;
   vertical-align: middle;
   box-shadow: 0 19px 15px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: .2s ease-in-out;
+  outline: none !important;
 }
 
 .existing-document:hover {
-   background-color: rgba(179,229,252,1);
+  background-color: rgba(179, 229, 252, 1);
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.create-document:hover {
+  background-color: rgb(204, 204, 204);
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 
 .create-document i {
-  font-size: 100px;
+  font-size: 80px;
   margin: 0 auto;
-  display: block;
+  /* display: block; */
   color: #00C853;
   text-align: center;
-  line-height: 3.5;
+  line-height: 3;
 }
 
 .existing-document h2 {
-  line-height: 10;
+  margin-top: 30%;
 }
-.list-btns {
+
+.delete-document-button {
   position: absolute;
-  top:40%;
-  left:29%;
+  top: 7%;
+  left: 81%;
+  color: #ff3831;
+  font-size: 30px;
+  cursor: hand;
 }
+
+.delete-document-button:before {
+  font-size: 30px;
+}
+
 .existing-document-wrapper {
   position: relative;
-  width: 300px;
-  height: 400px;
+  /* width: 300px; */
   display: inline-block;
 }
+
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
 
 .header-nav {
@@ -441,4 +464,3 @@ section, aside {
 /*section:hover, aside:hover {*/
 /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 /*}*/
-

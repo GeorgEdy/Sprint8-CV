@@ -8,10 +8,15 @@
  * Controller of the sprint8App
  */
 angular.module('sprint8App')
-  .controller('ListCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ListCtrl', function ($scope, StorageService) {
+    $scope.data = StorageService.data;
+    $scope.changeDocument = function (index) {
+      StorageService.currentDocIndex = index;
+    };
+
+    $scope.createDocument = StorageService.createDocument;
+    $scope.deleteDocument = function (index) {
+      StorageService.deleteDocument(index);
+      console.log(index);
+    };
   });
