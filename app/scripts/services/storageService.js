@@ -3,6 +3,24 @@ var app = angular.module('sprint8App');
 app.factory('StorageService', function () {
   var data = [];
   var currentDocIndex = 0;
+
+  var createDocument = function () {
+    var newDocument = angular.copy(emptyData);
+    data.push(newDocument);
+  };
+
+  var deleteDocument = function (index) {
+    data.splice(index, 1);
+  };
+
+  var addDocumentIfNoneExists = function () {
+    if (!data.length) {
+      createDocument();
+      currentDocIndex = 0;
+    }
+  };
+
+
   var initialData = {
     cvName: 'First CV',
     personalDetails: {
@@ -109,10 +127,65 @@ app.factory('StorageService', function () {
     skills: 'smecherie'
   };
 
+  var emptyData = {
+    cvName: 'Untitled CV',
+    personalDetails: {
+      name: '',
+      currPos: '',
+      aboutMe: '',
+      phoneNumber: '',
+      address: '',
+      email: '',
+      website: '',
+      skype: '',
+      linkedin: ''
+    },
+
+    workingExperience: [
+      {
+        position: '',
+        company: '',
+        description: '',
+        dateStart: '',
+        dateEnd: '',
+        toPresent: false
+      },
+      {
+        position: '',
+        company: '',
+        description: '',
+        dateStart: '',
+        dateEnd: '',
+        toPresent: false
+      }
+    ],
+    education: [
+      {
+        degree: '',
+        school: '',
+        description: '',
+        dateStart: '',
+        dateEnd: '',
+        toPresent: false
+      }
+    ],
+    languages: [
+      {
+        name: '',
+        understanding: '',
+        speaking: '',
+        writing: ''
+      }
+    ],
+    skills: ''
+  };
+
   data.push(initialData);
   data.push(initialData2);
   return {
     data: data,
-    currentDocIndex: currentDocIndex
+    currentDocIndex: currentDocIndex,
+    createDocument: createDocument,
+    deleteDocument: deleteDocument
   }
 });

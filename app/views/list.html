@@ -1,12 +1,14 @@
 <div class="list-view container-fluid">
-  <div class="create-document"><i class="glyphicon glyphicon-plus"></i></div>
-
-  <a href="/">
-    <div class="existing-document-wrapper" ng-repeat="item in data" ng-click="changeDocument($index)">
-      <div class="existing-document">
-        <h2>{{item.cvName}}</h2>
+  <div class="documents-container">
+    <div class="create-document"><i ng-click='createDocument()' class="glyphicon glyphicon-plus"></i></div>
+    <a href="/">
+      <div class="existing-document-wrapper" ng-repeat="item in data" ng-click="changeDocument($index)">
+        <div class="existing-document">
+          <h2>{{item.cvName}}</h2>
+        </div>
+        <a href="/list"> <i ng-click="deleteDocument($index)" class="fa fa-times delete-document-button"></i>
+        </a>
       </div>
-      <i ng-click="deleteDocument($index)" class="fa fa-times delete-document-button"></i>
-    </div>
-  </a>
+    </a>
+  </div>
 </div>

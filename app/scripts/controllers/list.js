@@ -13,7 +13,10 @@ angular.module('sprint8App')
     $scope.changeDocument = function (index) {
       StorageService.currentDocIndex = index;
     };
+
+    $scope.createDocument = StorageService.createDocument;
     $scope.deleteDocument = function (index) {
+      StorageService.deleteDocument(index);
       console.log(index);
-    }
+    };
   });
