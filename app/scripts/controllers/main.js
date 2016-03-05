@@ -85,6 +85,16 @@
     };
   });
 
+  app.directive('myInput', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        text: "=text"
+      },
+      template: '<input placeholder="{{text}}" type="text">'
+    }
+  });
+
   //app.directive('contenteditable', function () {
   //  return {
   //    require: 'ngModel',
