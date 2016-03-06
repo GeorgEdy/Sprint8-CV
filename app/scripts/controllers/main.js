@@ -47,12 +47,12 @@
       };
 
       $scope.displayDeleteButton = function (type) {
-        if(type === 'work') {
+        if (type === 'work') {
           return ($scope.data.workingExperience.length !== 1);
         } else if (type === 'education') {
           return ($scope.data.education.length !== 1);
         } else if (type === 'languages') {
-          return ($scope.data.languages.length !==1);
+          return ($scope.data.languages.length !== 1);
         }
       };
 

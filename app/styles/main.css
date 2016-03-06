@@ -308,10 +308,6 @@ section .fa-circle {
   color: #337ab7;
 }
 
-.existing-document:hover {
-  background-color: rgba(179, 229, 252, 1);
-}
-
 .create-document:hover {
   background-color: rgb(204, 204, 204);
   -webkit-filter: blur(2px);
@@ -329,11 +325,22 @@ section .fa-circle {
 
 .create-document-button:hover + .create-document {
   background-color: rgb(204, 204, 204);
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
 }
 
-.existing-document:hover + .delete-document-button {
+.existing-document-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.existing-document-wrapper:hover > .existing-document {
+  background-color: rgba(179, 229, 252, 1);
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
+}
+
+.existing-document-wrapper:hover > .delete-document-button {
   opacity: 1;
 }
 
@@ -349,17 +356,16 @@ section .fa-circle {
   font-size: 30px;
   cursor: pointer;
   transition: 0.2s;
+  opacity: 0;
   z-index: 2;
+}
+
+.delete-document-button:hover, .delete-document-button:focus {
+  color: #ff3831;
 }
 
 .delete-document-button:before {
   font-size: 30px;
-}
-
-.existing-document-wrapper {
-  position: relative;
-  /* width: 300px; */
-  display: inline-block;
 }
 
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
