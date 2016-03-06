@@ -181,7 +181,9 @@ section > h3 {
   position: absolute;
   right: 3%;
 }
-
+.fa-circle:before {
+  margin-right: 5px;
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
