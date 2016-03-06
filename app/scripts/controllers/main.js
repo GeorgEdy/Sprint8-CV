@@ -85,6 +85,33 @@
     };
   });
 
+  app.directive('removeOutline', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        element.on('click', function () {
+          element.blur();
+        })
+      }
+    }
+  });
+
+  app.directive('createDocument', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        //element.hover(
+        //  function () {
+        //    console.log('enter');
+        //    element.prev().css('opacity', '1');
+        //  },
+        //  function () {
+        //    element.prev().css('opacity', '0');
+        //  });
+      }
+    }
+  });
+
   app.directive('myInput', function () {
     return {
       restrict: 'E',
