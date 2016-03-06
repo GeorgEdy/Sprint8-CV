@@ -16,32 +16,34 @@ app.factory('StorageService', function () {
   var getInitialStorage = function () {
     if (localStorageData === null) {
       data.push(initialData);
-      cleanDates();
       localStorage.setItem('data', JSON.stringify(data));
       console.log('LocalStorage is Empty');
     }
     else {
-      data = JSON.parse(localStorageData);
-      cleanDates();
+      var tempData = JSON.parse(localStorageData);
+      cleanDates(tempData);
+      data = tempData;
+      console.log(data);
     }
   };
 
-  var cleanDates = function () {
-    console.log(data);
-    for (var i = 0; i < data.length; i++) {
-      for (var j = 0; j < data[i].workingExperience; j++) {
-        data[i].workingExperience[j].dateStart = new Date(data[i].workingExperience[j].dateStart);
-        data[i].workingExperience[j].dateEnd = new Date(data[i].workingExperience[j].dateEnd);
+  var cleanDates = function (dataArray) {
+    for (var i = 0; i < dataArray.length; i++) {
+      for (var j = 0; j < dataArray[i].workingExperience; j++) {
+        console.log(dataArray[i].workingExperience[j].dateStart);
+        dataArray[i].workingExperience[j].dateStart = new Date(dataArray[i].workingExperience[j].dateStart);
+        dataArray[i].workingExperience[j].dateEnd = new Date(dataArray[i].workingExperience[j].dateEnd);
       }
-      for (var k = 0; k < data[i].education; k++) {
-        data[i].education[k].dateStart = new Date(data[i].education[k].dateStart);
-        data[i].education[k].dateEnd = new Date(data[i].education[k].dateEnd);
+      for (var k = 0; k < dataArray[i].education; k++) {
+        console.log(dataArray[i].education[k].dateStart);
+        dataArray[i].education[k].dateStart = new Date(dataArray[i].education[k].dateStart);
+        dataArray[i].education[k].dateEnd = new Date(dataArray[i].education[k].dateEnd);
       }
     }
   };
 
   window.onbeforeunload = function () {
-    cleanDates();
+    cleanDates(data);
     localStorage.setItem('data', JSON.stringify(data));
     console.log('unload');
     return null;
