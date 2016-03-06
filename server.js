@@ -7,6 +7,7 @@ var PORT = 8080;
 
 app.use(bodyParser.urlencoded({extended:false}));
 
+
 app.use(function (req, res, next) {
     if (path.extname(req.path).length > 0) {
         //static file
@@ -17,7 +18,6 @@ app.use(function (req, res, next) {
         next();
     }
 });
-
 app.use(express.static(__dirname));
 app.listen(PORT);
 
