@@ -51,6 +51,10 @@ input[type="file"] {
   outline: none;
 }
 
+.invisible {
+  opacity: 0;
+}
+
 .visible {
   margin: 0;
   opacity: 1;
@@ -300,13 +304,8 @@ section .fa-circle {
   vertical-align: middle;
   box-shadow: 0 19px 15px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
   transition: .2s ease-in-out;
-  outline: none !important;
-}
-
-.existing-document:hover {
-  background-color: rgba(179, 229, 252, 1);
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
+  position: relative;
+  color: #337ab7;
 }
 
 .create-document:hover {
@@ -315,13 +314,34 @@ section .fa-circle {
   filter: blur(2px);
 }
 
-.create-document i {
+.create-document-button {
+  position: absolute;
+  z-index: 2;
   font-size: 80px;
-  margin: 0 auto;
-  /* display: block; */
   color: #00C853;
   text-align: center;
-  line-height: 3;
+  margin: 120px 0 0 70px;
+}
+
+.create-document-button:hover + .create-document {
+  background-color: rgb(204, 204, 204);
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
+}
+
+.existing-document-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.existing-document-wrapper:hover > .existing-document {
+  background-color: rgba(179, 229, 252, 1);
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
+}
+
+.existing-document-wrapper:hover > .delete-document-button {
+  opacity: 1;
 }
 
 .existing-document h2 {
@@ -334,17 +354,23 @@ section .fa-circle {
   left: 81%;
   color: #ff3831;
   font-size: 30px;
-  cursor: hand;
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 0;
+  z-index: 2;
+}
+
+.delete-document-button:hover, .delete-document-button:focus {
+  color: #ff3831;
 }
 
 .delete-document-button:before {
   font-size: 30px;
 }
 
-.existing-document-wrapper {
-  position: relative;
-  /* width: 300px; */
-  display: inline-block;
+.myDirective {
+  border: 1px solid black;
+  padding: 5px;
 }
 
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/

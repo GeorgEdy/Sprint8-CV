@@ -47,12 +47,12 @@
       };
 
       $scope.displayDeleteButton = function (type) {
-        if(type === 'work') {
+        if (type === 'work') {
           return ($scope.data.workingExperience.length !== 1);
         } else if (type === 'education') {
           return ($scope.data.education.length !== 1);
         } else if (type === 'languages') {
-          return ($scope.data.languages.length !==1);
+          return ($scope.data.languages.length !== 1);
         }
       };
 
@@ -69,19 +69,47 @@
           console.log($scope.data.personalDetails);
         });
       };
-
     }
   );
 
-  app.directive('datePicker', function () {
+  app.directive('cvDatePicker', function () {
     return {
-      replace: true,
-      //scope: {
-      //  dateValue: '@dateValue'
-      //},
-      link: function (scope, element, attr) {
+      restrict: 'E',
+      transclude: true,
+      scope: {
+        dateValue: "=",
+        show: "=",
+        chValue: "=",
+        chUse: "="
+      },
+      template: '<span>' +
+      '<input ng-model="dateValue" ng-show="show" type="date">' +
+      '<span ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</span>' +
+      '<ng-transclude></ng-transclude>' +
+      '</span>',
+      link: function (scope, element, attrs) {
       }
-    };
+    }
+  });
+
+
+  app.directive('removeOutline', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        element.on('click', function () {
+          element.blur();
+        })
+      }
+    }
+  });
+
+  app.directive('createDocument', function () {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+      }
+    }
   });
 
   //app.directive('contenteditable', function () {
@@ -107,8 +135,8 @@
   //});
 
   app.filter('dateFilter', function () {
-    return function (input, toPresent) {
-      return toPresent ? "Present" : moment(input).format('DD.MM.YYYY');
+    return function (input, toPresent, useFilter) {
+      return toPresent && useFilter ? "Present" : moment(input).format('DD.MM.YYYY');
     }
   });
 
