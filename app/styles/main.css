@@ -368,6 +368,11 @@ section .fa-circle {
   font-size: 30px;
 }
 
+.myDirective {
+  border: 1px solid black;
+  padding: 5px;
+}
+
 /*------------------------------------------------HEADER CSS---------------------------------------------------------*/
 
 .header-nav {

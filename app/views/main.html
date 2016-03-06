@@ -1,12 +1,12 @@
 <div class="col-md-4">
-  <my-input text="Name"></my-input>
   <aside class="sidebar-container">
     <section ng-mouseenter="showButtons.picture = true" ng-mouseleave="showButtons.picture = false">
       <div>
         <img class="upload-photo"
              src={{data.personalDetails.pictureSrc}}
              alt="Resume photo" title="Please upload a photo"/>
-        <label for="picture-upload" ng-class="showButtons.picture ? 'visible' : 'invisibleButton'" class="custom-picture-upload upload-btn">
+        <label for="picture-upload" ng-class="showButtons.picture ? 'visible' : 'invisibleButton'"
+               class="custom-picture-upload upload-btn">
           Upload picture
         </label>
         <input id="picture-upload" type="file" ng-model-instant
@@ -60,7 +60,8 @@
   </aside>
 </div>
 <article class="col-md-8">
-  <section class="space" ng-mouseenter="showButtons.work = true; showButtons.workDelete = displayDeleteButton('work')" ng-mouseleave="showButtons.work = false; showButtons.workDelete = false">
+  <section class="space" ng-mouseenter="showButtons.work = true; showButtons.workDelete = displayDeleteButton('work')"
+           ng-mouseleave="showButtons.work = false; showButtons.workDelete = false">
     <h3>Work experience</h3>
     <hr>
     <div class="parent" ng-repeat="item in data.workingExperience">
@@ -74,21 +75,16 @@
         </div>
           <span>From:
           <label class="date-label">
-            <input date-picker type="date"
-                   ng-model="item.dateStart"
-                   value={{item.dateStart}}
-                   ng-show="showButtons.work">
-            <span ng-show="!showButtons.work">{{item.dateStart | dateFilter}}</span>
+            <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
+            </cv-date-picker>
           </label>
         </span>
         <div class="clearfix"></div>
         <span>To:
           <label class="date-label">
-            <input date-picker
-                   ng-model="item.dateEnd" type="date" value={{item.dateEnd}}
-                   ng-show="showButtons.work">
-            <span ng-show="!showButtons.work">{{item.dateEnd | dateFilter:item.toPresent}}</span>
-            <span ng-show="showButtons.work"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+            <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
+              <span ng-show="showButtons.work"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+            </cv-date-picker>
           </label>
         </span>
         <div>
@@ -107,7 +103,9 @@
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
-  <section class="space" ng-mouseenter="showButtons.education = true; showButtons.educationDelete = displayDeleteButton('education')" ng-mouseleave="showButtons.education = false; showButtons.educationDelete = false">
+  <section class="space"
+           ng-mouseenter="showButtons.education = true; showButtons.educationDelete = displayDeleteButton('education')"
+           ng-mouseleave="showButtons.education = false; showButtons.educationDelete = false">
     <h3>Education</h3>
     <hr>
     <div class="parent" ng-repeat="item in data.education">
@@ -119,22 +117,18 @@
           <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
         </div>
           <span>From:
-          <label>
-            <input date-picker type="date"
-                   ng-model="item.dateStart"
-                   value={{item.dateStart}}
-                   ng-show="showButtons.education">
-            <span ng-show="!showButtons.education">{{item.dateStart | dateFilter}}</span>
+          <label class="date-label">
+            <cv-date-picker date-value="item.dateStart" show="showButtons.education" ch-value="item.toPresent">
+            </cv-date-picker>
           </label>
         </span>
         <div class="clearfix"></div>
         <span>To:
           <label>
-            <input date-picker
-                   ng-model="item.dateEnd" type="date" value={{item.dateEnd}}
-                   ng-show="showButtons.education">
-            <span ng-show="!showButtons.education">{{item.dateEnd | dateFilter:item.toPresent}}</span>
-            <span ng-show="showButtons.education"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+            <cv-date-picker date-value="item.dateEnd" show="showButtons.education" ch-value="item.toPresent"
+                            ch-use="true">
+              <span ng-show="showButtons.education"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+            </cv-date-picker>
           </label>
         </span>
         <div>
@@ -149,11 +143,14 @@
       <div class="clearfix"></div>
       <hr class="hr-between-items">
     </div>
-    <div class="plus-btn" ng-click="addField('education')" ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
+    <div class="plus-btn" ng-click="addField('education')"
+         ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
-  <section class="space" ng-mouseenter="showButtons.languages = true; showButtons.languagesDelete = displayDeleteButton('languages')" ng-mouseleave="showButtons.languages = false; showButtons.languagesDelete = false">
+  <section class="space"
+           ng-mouseenter="showButtons.languages = true; showButtons.languagesDelete = displayDeleteButton('languages')"
+           ng-mouseleave="showButtons.languages = false; showButtons.languagesDelete = false">
     <h3>Languages</h3>
     <hr>
     <div class="row">
@@ -176,7 +173,8 @@
         <hr class="hr-between-items">
       </div>
     </div>
-    <div class="plus-btn" ng-click="addField('languages')" ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
+    <div class="plus-btn" ng-click="addField('languages')"
+         ng-class="showButtons.languages ? 'visible' : 'invisibleButton'">
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>

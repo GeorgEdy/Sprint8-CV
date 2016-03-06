@@ -69,20 +69,29 @@
           console.log($scope.data.personalDetails);
         });
       };
-
     }
   );
 
-  app.directive('datePicker', function () {
+  app.directive('cvDatePicker', function () {
     return {
-      replace: true,
-      //scope: {
-      //  dateValue: '@dateValue'
-      //},
-      link: function (scope, element, attr) {
+      restrict: 'E',
+      transclude: true,
+      scope: {
+        dateValue: "=",
+        show: "=",
+        chValue: "=",
+        chUse: "="
+      },
+      template: '<span>' +
+      '<input ng-model="dateValue" ng-show="show" type="date">' +
+      '<span ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</span>' +
+      '<ng-transclude></ng-transclude>' +
+      '</span>',
+      link: function (scope, element, attrs) {
       }
-    };
+    }
   });
+
 
   app.directive('removeOutline', function () {
     return {
@@ -99,25 +108,7 @@
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-        //element.hover(
-        //  function () {
-        //    console.log('enter');
-        //    element.prev().css('opacity', '1');
-        //  },
-        //  function () {
-        //    element.prev().css('opacity', '0');
-        //  });
       }
-    }
-  });
-
-  app.directive('myInput', function () {
-    return {
-      restrict: 'E',
-      scope: {
-        text: "=text"
-      },
-      template: '<input placeholder="{{text}}" type="text">'
     }
   });
 
@@ -144,8 +135,8 @@
   //});
 
   app.filter('dateFilter', function () {
-    return function (input, toPresent) {
-      return toPresent ? "Present" : moment(input).format('DD.MM.YYYY');
+    return function (input, toPresent, useFilter) {
+      return toPresent && useFilter ? "Present" : moment(input).format('DD.MM.YYYY');
     }
   });
 
