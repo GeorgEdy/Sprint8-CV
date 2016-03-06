@@ -1,14 +1,16 @@
 <div class="list-view container-fluid">
   <div class="documents-container">
-    <div class="create-document"><i ng-click='createDocument()' class="glyphicon glyphicon-plus"></i></div>
-    <a href="/">
-      <div class="existing-document-wrapper" ng-repeat="item in data" ng-click="changeDocument($index)">
-        <div class="existing-document">
-          <h2>{{item.cvName}}</h2>
-        </div>
-        <a href="/list"> <i ng-click="deleteDocument($index)" class="fa fa-times delete-document-button"></i>
-        </a>
+
+    <i remove-outline ng-click='createDocument()' class="create-document-button glyphicon glyphicon-plus"></i>
+    <div remove-outline ng-click='createDocument()' class="create-document">
+    </div>
+    <div remove-outline class="existing-document-wrapper" ng-repeat="item in data" ng-click="changeDocument($index)">
+      <a href="/list" class="delete-document-button">
+        <i ng-click="deleteDocument($index)" class="fa fa-times"></i>
+      </a>
+      <div class="existing-document">
+        <h2>{{item.cvName}}</h2>
       </div>
-    </a>
+    </div>
   </div>
 </div>

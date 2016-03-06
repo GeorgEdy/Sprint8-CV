@@ -8,10 +8,11 @@
  * Controller of the sprint8App
  */
 angular.module('sprint8App')
-  .controller('ListCtrl', function ($scope, StorageService) {
+  .controller('ListCtrl', ['$scope', 'StorageService', '$location', function ($scope, StorageService, $location) {
     $scope.data = StorageService.data;
     $scope.changeDocument = function (index) {
       StorageService.currentDocIndex = index;
+      $location.path('/');
     };
 
     $scope.createDocument = StorageService.createDocument;
@@ -19,4 +20,4 @@ angular.module('sprint8App')
       StorageService.deleteDocument(index);
       console.log(index);
     };
-  });
+  }]);
