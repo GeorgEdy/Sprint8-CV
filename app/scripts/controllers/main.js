@@ -7,7 +7,7 @@
   app.controller('MainCtrl', function ($scope, StorageService) {
       $scope.currentDocIndex = StorageService.currentDocIndex;
       $scope.data = StorageService.data[$scope.currentDocIndex];
-      $scope.showButtons = {work: false, education: false, languages: false, proSkills: false};
+      $scope.showButtons = {work: false, education: false, languages: false, proSkills: false, picture: false};
       $scope.changeDocument = function (index) {
         $scope.data = StorageService.data[index];
         alert(StorageService.currentDocIndex);
@@ -46,14 +46,13 @@
         }
       };
 
-      $scope.deleteField = function (name, event, index) {
-        if (name === 'workingExperience') {
-
-          $scope.data.workingExperience.splice(index, 1);
-        } else if (name === 'education') {
-          $scope.data.education.splice(index, 1);
-        } else {
-          $scope.data.languages.splice(index, 1);
+      $scope.displayDeleteButton = function (type) {
+        if(type === 'work') {
+          return ($scope.data.workingExperience.length !== 1);
+        } else if (type === 'education') {
+          return ($scope.data.education.length !== 1);
+        } else if (type === 'languages') {
+          return ($scope.data.languages.length !==1);
         }
       };
 
