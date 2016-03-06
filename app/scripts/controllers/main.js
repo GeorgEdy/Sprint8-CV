@@ -112,27 +112,28 @@
     }
   });
 
-  //app.directive('contenteditable', function () {
-  //  return {
-  //    require: 'ngModel',
-  //    link: function (scope, element, attrs, ctrl) {
-  //      // view -> model
-  //      element.bind('blur', function () {
-  //        scope.$apply(function () {
-  //          ctrl.$render();
-  //        });
-  //      });
-  //
-  //      // model -> view
-  //      ctrl.$render = function () {
-  //        element.html(ctrl.$viewValue);
-  //      };
-  //
-  //      // load init value from DOM
-  //      ctrl.$setViewValue(element.html());
-  //    }
-  //  };
-  //});
+  app.directive("contenteditable", function () {
+    return {
+      restrict: "A",
+      require: "ngModel",
+      link: function (scope, element, attrs, ngModel) {
+
+        function read() {
+          var html = element.html();
+          html = html.replace(/&nbsp;/g, "\u00a0");
+          ngModel.$setViewValue(html);
+        }
+
+        ngModel.$render = function () {
+          element.html(ngModel.$viewValue || "");
+        };
+
+        element.bind("blur keyup change", function () {
+          scope.$apply(read);
+        });
+      }
+    };
+  });
 
   app.filter('dateFilter', function () {
     return function (input, toPresent, useFilter) {
