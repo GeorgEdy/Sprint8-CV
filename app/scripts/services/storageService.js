@@ -56,7 +56,6 @@ app.factory('StorageService', function () {
       localStorage.clear('data');
       data = [];
       location.reload();
-
     }
   });
 
