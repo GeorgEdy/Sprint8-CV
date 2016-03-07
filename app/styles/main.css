@@ -104,6 +104,11 @@ input[type="file"] {
 .date-label {
 }
 
+.date-text {
+  border: 1px solid black;
+  padding: 20px;
+}
+
 .invisibleButton {
   padding: 0;
   opacity: 0;
