@@ -184,6 +184,11 @@ section > h3 {
 .fa-circle:before {
   margin-right: 5px;
 }
+.date-label input{
+  height:20px;
+  width:140px;
+  display: inline-block;
+}
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;

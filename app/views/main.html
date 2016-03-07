@@ -65,7 +65,6 @@
     <h3>Work experience</h3>
     <hr>
     <div class="parent" ng-repeat="item in data.workingExperience">
-      <i class=""></i>
       <div class="pull-left bulleted-text">
         <div contenteditable="true" placeholder="Position" class="fa fa-circle">{{item.position}}</div>
       </div>
@@ -83,7 +82,7 @@
         <span>To:
           <label class="date-label">
             <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
-              <span ng-show="showButtons.work"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+              <span ng-show="showButtons.work" class="date-span"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
         </span>
