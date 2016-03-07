@@ -82,11 +82,11 @@
         chValue: "=",
         chUse: "="
       },
-      template: '<span>' +
+      template: '<div>' +
       '<input ng-model="dateValue" ng-show="show" type="date">' +
-      '<span ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</span>' +
+      '<div ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</div>' +
       '<ng-transclude></ng-transclude>' +
-      '</span>',
+      '</div>',
       link: function (scope, element, attrs) {
       }
     }

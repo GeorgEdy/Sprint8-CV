@@ -70,20 +70,20 @@
         <div>
           <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
         </div>
-          <span>From:
+          <div>From:
           <label class="date-label">
             <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
             </cv-date-picker>
           </label>
-        </span>
+        </div>
         <div class="clearfix"></div>
-        <span>To:
+        <div>To:
           <label class="date-label">
             <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
               <span ng-show="showButtons.work" class="date-span"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
-        </span>
+        </div>
         <div>
           <div contenteditable="true" placeholder="Description" ng-model="item.description"></div>
         </div>
