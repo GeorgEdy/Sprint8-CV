@@ -87,7 +87,7 @@ app.factory('StorageService', function () {
       {
         position: 'Manager Assistant',
         company: 'Red Box',
-        description: 'No ideea what I am doing here',
+        description: 'No idea what I am doing here',
         dateStart: new Date(2009, 10, 10),
         dateEnd: new Date(2013, 10, 10),
         toPresent: false
