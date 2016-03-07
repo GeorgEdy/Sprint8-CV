@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'demo'
   ])
   .config(function ($locationProvider, $routeProvider) {
     $locationProvider.html5Mode({

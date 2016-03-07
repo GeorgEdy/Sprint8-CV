@@ -190,5 +190,5 @@ app.factory('StorageService', function () {
     currentDocIndex: currentDocIndex,
     createDocument: createDocument,
     deleteDocument: deleteDocument
-  }
+  };
 });
