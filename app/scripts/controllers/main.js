@@ -29,20 +29,20 @@
             position: '',
             company: '',
             description: ''
-          })
+          });
         } else if (name === 'education') {
           $scope.data.education.push({
             degree: '',
             school: '',
             description: ''
-          })
+          });
         } else {
           $scope.data.languages.push({
             name: '',
             understanding: '',
             speaking: '',
             writing: ''
-          })
+          });
         }
       };
 
@@ -82,11 +82,11 @@
         chValue: "=",
         chUse: "="
       },
-      template: '<span>' +
+      template: '<div>' +
       '<input ng-model="dateValue" ng-show="show" type="date">' +
-      '<span ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</span>' +
+      '<div ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</div>' +
       '<ng-transclude></ng-transclude>' +
-      '</span>',
+      '</div>',
       link: function (scope, element, attrs) {
       }
     }
@@ -137,7 +137,7 @@
 
   app.filter('dateFilter', function () {
     return function (input, toPresent, useFilter) {
-      return toPresent && useFilter ? "Present" : moment(input).format('DD.MM.YYYY');
+      return toPresent && useFilter ? "Present" : moment(input).format('DD-MM-YYYY');
     }
   });
 

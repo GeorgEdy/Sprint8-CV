@@ -187,6 +187,34 @@ section > h3 {
   right: 3%;
 }
 
+.fa-circle:before {
+  margin-right: 5px;
+}
+
+.date-label input {
+  height: 14px;
+  width: 135px;
+  max-width: 135px;
+  display: inline-block;
+  margin: 0;
+}
+
+input[type=date] {
+  width: 150px;
+}
+
+::-webkit-inner-spin-button {
+  height: 0;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  height: 0;
+  font-weight: bold;
+}
+
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
   width: 95%;
@@ -209,7 +237,10 @@ section > h3 {
 }
 
 .upload-btn {
-  border: none
+  border: none;
+  position: absolute;
+  top: 24%;
+  left: 25%;
 }
 
 .sidebar-container h2,
@@ -225,7 +256,7 @@ section > h3 {
 }
 
 .sidebar-container p {
-  margin: 0 10px 0 10px;
+  margin: 0 auto;
   text-align: center;
 }
 
