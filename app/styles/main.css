@@ -74,7 +74,7 @@ input[type="file"] {
 
 .skills-section[contenteditable=true] {
   width: 100%;
-  padding: 100px;
+  padding: 10px;
   margin: 10px 0 20px 0;
 }
 
@@ -190,9 +190,19 @@ section > h3 {
   margin-right: 5px;
 }
 .date-label input{
-  height:20px;
-  width:140px;
+  height: 14px;
+  width:135px;
+  max-width:135px;
   display: inline-block;
+  margin: 0;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0;
+  height: 0;
+  font-weight: bold;
 }
 /*------------------------------------------------SIDEBAR CSS-----------------------------------------------------*/
 .sidebar-container {
@@ -216,7 +226,10 @@ section > h3 {
 }
 
 .upload-btn {
-  border: none
+  border: none;
+  position: absolute;
+  top: 24%;
+  left: 25%;
 }
 
 .sidebar-container h2,
