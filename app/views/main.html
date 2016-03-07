@@ -14,15 +14,13 @@
       </div>
     </section>
     <div>
-      <h3 contenteditable="true" placeholder="Name">{{ data.personalDetails.name }}</h3>
-      <h4 contenteditable="true" placeholder="Current position">{{ data.personalDetails.currPos }}</h4>
+      <h3 contenteditable="true" placeholder="Name" ng-model="data.personalDetails.name"></h3>
+      <h4 contenteditable="true" placeholder="Current position" ng-model="data.personalDetails.currPos"></h4>
     </div>
     <div class="about-section">
       <hr>
       <h4><i class="glyphicon glyphicon-user"></i>About me</h4>
-      <p contenteditable="true"
-         placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-        {{ data.personalDetails.aboutMe }}
+      <p contenteditable="true" placeholder="Details" ng-model="data.personalDetails.aboutMe">
       </p>
     </div>
     <div class="contact-section">
@@ -30,19 +28,19 @@
       <h4>Contact Info</h4>
       <div class="contact-phone">
         <i class="glyphicon glyphicon-earphone"></i>
-        <span contenteditable="true" placeholder="Phone number">{{ data.personalDetails.phoneNumber }}</span>
+        <span contenteditable="true" placeholder="Phone number" ng-model="data.personalDetails.phoneNumber"></span>
       </div>
       <div class="contact-address">
         <i class="glyphicon glyphicon-map-marker"></i>
-        <span contenteditable="true" placeholder="Address">{{ data.personalDetails.address }}</span>
+        <span contenteditable="true" placeholder="Address" ng-model="data.personalDetails.address"></span>
       </div>
       <div class="contact-email">
         <i class="glyphicon glyphicon-envelope"></i>
-        <span contenteditable="true" placeholder="E-mail">{{ data.personalDetails.email }}</span>
+        <span contenteditable="true" placeholder="E-mail" ng-model="data.personalDetails.email"></span>
       </div>
       <div class="contact-website">
         <i class="glyphicon glyphicon-globe"></i>
-        <span contenteditable="true" placeholder="Website">{{ data.personalDetails.website }}</span>
+        <span contenteditable="true" placeholder="Website" ng-model="data.personalDetails.website"></span>
       </div>
     </div>
     <div class="social-section">
@@ -50,11 +48,11 @@
       <h4>Social Media</h4>
       <div class="social-skype">
         <i class="fa fa-skype"></i>
-        <span contenteditable="true" placeholder="Skype ID">{{ data.personalDetails.skype }}</span>
+        <span contenteditable="true" placeholder="Skype ID" ng-model="data.personalDetails.skype"></span>
       </div>
       <div class="social-linkedin">
         <i class="fa fa-linkedin-square"></i>
-        <span contenteditable="true" placeholder="LinkedIn profile">{{ data.personalDetails.linkedin }}</span>
+        <span contenteditable="true" placeholder="LinkedIn profile" ng-model="data.personalDetails.linkedin"></span>
       </div>
     </div>
   </aside>
@@ -66,11 +64,11 @@
     <hr>
     <div class="parent" ng-repeat="item in data.workingExperience">
       <div class="pull-left bulleted-text">
-        <div contenteditable="true" placeholder="Position" class="fa fa-circle">{{item.position}}</div>
+        <div contenteditable="true" placeholder="Position" class="fa fa-circle" ng-model="item.position"></div>
       </div>
       <div class="pull-right">
         <div>
-          <div contenteditable="true" placeholder="Company name and location">{{item.company}}</div>
+          <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
         </div>
           <span>From:
           <label class="date-label">
@@ -87,7 +85,7 @@
           </label>
         </span>
         <div>
-          <div contenteditable="true" placeholder="Description">{{item.description}}</div>
+          <div contenteditable="true" placeholder="Description" ng-model="item.description"></div>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -109,11 +107,11 @@
     <hr>
     <div class="parent" ng-repeat="item in data.education">
       <div class="pull-left bulleted-text">
-        <div contenteditable="true" placeholder="Degree" class="fa fa-circle">{{item.degree}}</div>
+        <div contenteditable="true" placeholder="Degree" class="fa fa-circle" ng-model="item.degree"></div>
       </div>
       <div class="pull-right">
         <div>
-          <div contenteditable="true" placeholder="School name and location">{{item.school}}</div>
+          <div contenteditable="true" placeholder="School name and location" ng-model="item.school"></div>
         </div>
           <span>From:
           <label class="date-label">
@@ -131,7 +129,7 @@
           </label>
         </span>
         <div>
-          <div contenteditable="true" placeholder="description">{{item.description}}</div>
+          <div contenteditable="true" placeholder="description" ng-model="item.description"></div>
         </div>
         <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
              ng-class="showButtons.educationDelete ? 'visible' : 'invisibleButton'">
@@ -160,10 +158,10 @@
     </div>
     <div class="parent" ng-repeat="item in data.languages">
       <div class="row hide-buttons">
-        <div contenteditable="true" placeholder="Name" class="col-md-4 lang">{{item.name}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language">{{item.understanding}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language">{{item.speaking}}</div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language">{{item.writing}}</div>
+        <div contenteditable="true" placeholder="Name" class="col-md-4 lang" ng-model="item.name"></div>
+        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.understanding"></div>
+        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.speaking"></div>
+        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.writing"></div>
         <div class="clearfix"></div>
         <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('languages', $event, $index)"
              ng-class="showButtons.languagesDelete ? 'visible' : 'invisibleButton'">
@@ -181,6 +179,6 @@
            ng-mouseleave="showButtons.proSkills = false">
     <h3>Professional skills</h3>
     <hr>
-    <div contenteditable="true" placeholder="e.g. team player" class="skills-section">{{data.skills}}</div>
+    <div contenteditable="true" placeholder="e.g. team player" class="skills-section" ng-model="data.skills"></div>
   </section>
 </article>
