@@ -137,7 +137,7 @@
 
   app.filter('dateFilter', function () {
     return function (input, toPresent, useFilter) {
-      return toPresent && useFilter ? "Present" : moment(input).format('DD.MM.YYYY');
+      return toPresent && useFilter ? "Present" : moment(input).format('DD-MM-YYYY');
     }
   });
 
