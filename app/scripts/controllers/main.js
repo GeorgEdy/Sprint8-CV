@@ -29,20 +29,20 @@
             position: '',
             company: '',
             description: ''
-          })
+          });
         } else if (name === 'education') {
           $scope.data.education.push({
             degree: '',
             school: '',
             description: ''
-          })
+          });
         } else {
           $scope.data.languages.push({
             name: '',
             understanding: '',
             speaking: '',
             writing: ''
-          })
+          });
         }
       };
 
