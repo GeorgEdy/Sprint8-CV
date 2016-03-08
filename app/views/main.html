@@ -1,13 +1,11 @@
 <div class="col-md-4">
   <aside class="sidebar-container">
-    <section ng-mouseenter="showButtons.picture = true" ng-mouseleave="showButtons.picture = false">
+    <section class="picture-wrapper">
       <div>
-        <img class="upload-photo"
-             src={{data.personalDetails.pictureSrc}}
-             alt="Resume photo" title="Please upload a photo"/>
-        <label for="picture-upload" ng-class="showButtons.picture ? 'visible' : 'invisibleButton'"
-               class="custom-picture-upload upload-btn">
-          Upload picture
+        <label for="picture-upload" class="custom-picture-upload upload-btn">
+          <img class="upload-photo"
+               src={{data.personalDetails.pictureSrc}}
+               alt="Resume photo" title="Please upload a photo"/>
         </label>
         <input id="picture-upload" type="file" ng-model-instant
                onchange="angular.element(this).scope().imageUpload(event)" multiple/>
@@ -80,7 +78,8 @@
         <div>To:
           <label class="date-label">
             <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
-              <span ng-show="showButtons.work" class="date-span"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+              <span ng-show="showButtons.work" class="date-span">
+                <input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
         </div>
@@ -124,7 +123,6 @@
           <label>
             <cv-date-picker date-value="item.dateEnd" show="showButtons.education" ch-value="item.toPresent"
                             ch-use="true">
-              <span ng-show="showButtons.education"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
         </span>
