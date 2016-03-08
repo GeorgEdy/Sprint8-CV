@@ -22,7 +22,7 @@ app.factory('StorageService', function () {
     }
     else {
       var tempData = JSON.parse(localStorageData);
-      cleanDates(tempData);
+      //cleanDates(tempData);
       data = tempData;
       console.log(data);
     }
@@ -44,7 +44,7 @@ app.factory('StorageService', function () {
   };
 
   window.onbeforeunload = function () {
-    cleanDates(data);
+    //cleanDates(data);
     localStorage.setItem('data', JSON.stringify(data));
     console.log('unload');
     return null;
@@ -57,6 +57,9 @@ app.factory('StorageService', function () {
       localStorage.clear('data');
       data = [];
       location.reload();
+    }
+    else if (event.keyCode == 67) {
+      console.log(data);
     }
   });
 

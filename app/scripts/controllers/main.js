@@ -84,11 +84,22 @@
         chUse: "="
       },
       template: '<div>' +
-      '<input ng-model="dateValue" ng-show="show" type="date">' +
+      '<input ng-model="dateValue" ng-show="show" format-date type="date">' +
       '<div ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</div>' +
       '<ng-transclude></ng-transclude>' +
       '</div>',
       link: function (scope, element, attrs) {
+      }
+    }
+  });
+
+  app.directive("formatDate", function () {
+    return {
+      require: 'ngModel',
+      link: function (scope, elem, attr, modelCtrl) {
+        modelCtrl.$formatters.push(function (modelValue) {
+          return new Date(modelValue);
+        })
       }
     }
   });
