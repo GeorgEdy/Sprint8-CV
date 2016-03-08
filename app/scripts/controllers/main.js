@@ -12,6 +12,7 @@
         $scope.data = StorageService.data[index];
         alert(StorageService.currentDocIndex);
       };
+
       $scope.deleteField = function (name, event, index) {
         if (name === 'workingExperience') {
 
