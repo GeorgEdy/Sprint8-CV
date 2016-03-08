@@ -80,7 +80,8 @@
         <div>To:
           <label class="date-label">
             <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
-              <span ng-show="showButtons.work" class="date-span"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
+              <span ng-show="showButtons.work" class="date-span">
+                <input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
         </div>
@@ -124,7 +125,6 @@
           <label>
             <cv-date-picker date-value="item.dateEnd" show="showButtons.education" ch-value="item.toPresent"
                             ch-use="true">
-              <span ng-show="showButtons.education"><input ng-model='item.toPresent' type="checkbox"/>To Present</span>
             </cv-date-picker>
           </label>
         </span>

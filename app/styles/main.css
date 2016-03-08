@@ -201,6 +201,7 @@ section > h3 {
 
 input[type=date] {
   width: 150px;
+  height: 14px;
 }
 
 ::-webkit-inner-spin-button {
