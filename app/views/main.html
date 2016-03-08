@@ -59,7 +59,7 @@
 </div>
 <article class="col-md-8">
   <section class="space" ng-mouseenter="showButtons.work = true; showButtons.workDelete = displayDeleteButton('work')"
-           showButtons.workDelete=false">
+           ng-mouseleave="showButtons.work = false; showButtons.workDelete = false">
     <h3>Work experience</h3>
     <hr>
     <div class="parent" ng-repeat="item in data.workingExperience">
@@ -70,7 +70,7 @@
         <div>
           <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
         </div>
-        <div>From:
+          <div>From:
           <label class="date-label">
             <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
             </cv-date-picker>
@@ -103,7 +103,7 @@
   </section>
   <section class="space"
            ng-mouseenter="showButtons.education = true; showButtons.educationDelete = displayDeleteButton('education')"
-           showButtons.educationDelete=false">
+           ng-mouseleave="showButtons.education = false; showButtons.educationDelete = false">
     <h3>Education</h3>
     <hr>
     <div class="parent" ng-repeat="item in data.education">
