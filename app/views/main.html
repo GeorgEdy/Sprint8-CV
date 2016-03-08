@@ -1,13 +1,11 @@
 <div class="col-md-4">
   <aside class="sidebar-container">
-    <section ng-mouseenter="showButtons.picture = true" ng-mouseleave="showButtons.picture = false">
+    <section class="picture-wrapper">
       <div>
-        <img class="upload-photo"
-             src={{data.personalDetails.pictureSrc}}
-             alt="Resume photo" title="Please upload a photo"/>
-        <label for="picture-upload" ng-class="showButtons.picture ? 'visible' : 'invisibleButton'"
-               class="custom-picture-upload upload-btn">
-          Upload picture
+        <label for="picture-upload" class="custom-picture-upload upload-btn">
+          <img class="upload-photo"
+               src={{data.personalDetails.pictureSrc}}
+               alt="Resume photo" title="Please upload a photo"/>
         </label>
         <input id="picture-upload" type="file" ng-model-instant
                onchange="angular.element(this).scope().imageUpload(event)" multiple/>

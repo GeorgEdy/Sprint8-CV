@@ -228,6 +228,7 @@ label {
 
 .upload-photo {
   width: 90%;
+  height: 190px;
   margin-left: 5%;
   margin-top: 5px;
 }
@@ -239,9 +240,12 @@ label {
 
 .upload-btn {
   border: none;
-  position: absolute;
   top: 24%;
   left: 25%;
+}
+
+.picture-wrapper {
+  height: 200px;
 }
 
 .sidebar-container h2,
