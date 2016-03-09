@@ -52,6 +52,7 @@ app.factory('StorageService', function () {
     initialiseHistorySection(index, 'personalDetails');
     //initialiseHistorySection(index,'cvName');
     console.log('History Initialised');
+    historyDataIndex = historyQueueOriginal[index].length - 1;
     //console.log(historyQueueOriginal[index]);
 
   };

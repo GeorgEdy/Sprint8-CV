@@ -77,11 +77,18 @@
 
 
       $(window).on('keypress', function (event) {
-        console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
-        if (event.ctrlKey && (event.which == 9)) {
-          console.log('UNDO');
-          var index = StorageService.historyDataIndex;
-          console.log(StorageService.historyQueueOriginal, index);
+        //console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
+        if (event.ctrlKey && (event.which == 26)) {
+          var docIndex = StorageService.currentDocIndex;
+          var index = --StorageService.historyDataIndex;
+          if (index > 0) {
+            console.log('UNDO');
+            console.log(StorageService.data[docIndex]);
+            $scope.data.cvName = '1234567';
+            var lastHistoryObj = StorageService.historyQueueOriginal[docIndex][index];
+            objectPath.set(StorageService.data[docIndex], lastHistoryObj.section, lastHistoryObj.data);
+            console.log(StorageService.historyQueueOriginal, index);
+          }
         }
         else if (event.ctrlKey && (event.which == 25)) {
           console.log('REDO');
