@@ -2,30 +2,70 @@ var app = angular.module('sprint8App');
 
 app.factory('StorageService', function () {
   "use strict";
+  var historyDataIndex;
   var data = [];
+  var lastData = [];
+  var historyQueueOriginal = [];
+  var historyQueueChanged = [];
   var currentDocIndex = 0;
   var localStorageData = localStorage.getItem('data');
-
   var createDocument = function () {
     var newDocument = angular.copy(emptyData);
     data.push(newDocument);
+    lastData.push(newDocument);
   };
 
   var deleteDocument = function (index) {
     data.splice(index, 1);
+    lastData = angular.copy(data);
   };
-  var getInitialStorage = function () {
+
+
+  var initialise = function () {
     if (localStorageData === null) {
       data.push(initialData);
+      lastData = angular.copy(data);
+      historyQueueOriginal.push([]);
+      historyQueueChanged.push([]);
       localStorage.setItem('data', JSON.stringify(data));
+      historyDataIndex = historyQueueOriginal.length - 1;
       console.log('LocalStorage is Empty');
     }
     else {
-      var tempData = JSON.parse(localStorageData);
-      //cleanDates(tempData);
-      data = tempData;
-      console.log(data);
+      data = JSON.parse(localStorageData);
+      lastData = angular.copy(data);
+      for (var i = 0; i < data.length; i++) {
+        historyQueueOriginal.push([]);
+        historyQueueChanged.push([]);
+      }
+      historyDataIndex = historyQueueOriginal.length - 1;
+      console.log('LocalStorage has Data');
     }
+  };
+
+  var initialiseHistory = function (index) {
+
+    initialiseHistorySection(index, 'workingExperience');
+    initialiseHistorySection(index, 'education');
+    initialiseHistorySection(index, 'languages');
+    initialiseHistorySection(index, 'skills');
+    initialiseHistorySection(index, 'personalDetails');
+    //initialiseHistorySection(index,'cvName');
+    console.log('History Initialised');
+    //console.log(historyQueueOriginal[index]);
+
+  };
+
+  var initialiseHistorySection = function (index, section) {
+    var historyObject = {
+      data: '', //angular.copy might be redundant
+      timestamp: moment(),
+      section: ''
+    };
+    historyObject.section = section;
+    historyObject.data = objectPath.get(data[index], section);
+    historyQueueOriginal[index].push(angular.copy(historyObject));
+    historyQueueChanged[index].push(angular.copy(historyObject));
   };
 
   var cleanDates = function (dataArray) {
@@ -49,19 +89,6 @@ app.factory('StorageService', function () {
     console.log('unload');
     return null;
   };
-
-  $(window).on('keypress', function (event) {
-    console.log(event.keyCode);
-    if (event.keyCode === 68) {
-      window.onbeforeunload = null;
-      localStorage.clear('data');
-      data = [];
-      location.reload();
-    }
-    else if (event.keyCode == 67) {
-      console.log(data);
-    }
-  });
 
   var initialData = {
     cvName: 'First CV',
@@ -179,18 +206,11 @@ app.factory('StorageService', function () {
       email: '',
       website: '',
       skype: '',
-      linkedin: ''
+      linkedin: '',
+      pictureSrc: ''
     },
 
     workingExperience: [
-      {
-        position: '',
-        company: '',
-        description: '',
-        dateStart: '',
-        dateEnd: '',
-        toPresent: false
-      },
       {
         position: '',
         company: '',
@@ -221,11 +241,16 @@ app.factory('StorageService', function () {
     skills: ''
   };
 
-  getInitialStorage();
+  initialise();
 
   return {
     data: data,
     currentDocIndex: currentDocIndex,
+    historyDataIndex: historyDataIndex,
+    initialiseHistory: initialiseHistory,
+    historyQueueOriginal: historyQueueOriginal,
+    historyQueueChanged: historyQueueChanged,
+    lastData: lastData,
     createDocument: createDocument,
     deleteDocument: deleteDocument
   };

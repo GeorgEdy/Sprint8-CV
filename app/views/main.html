@@ -1,16 +1,15 @@
 <div class="col-md-4">
-  <aside class="sidebar-container">
-    <section class="picture-wrapper">
-      <div>
-        <label for="picture-upload" class="custom-picture-upload upload-btn">
-          <img class="upload-photo"
-               src={{data.personalDetails.pictureSrc}}
-               alt="Resume photo" title="Please upload a photo"/>
-        </label>
-        <input id="picture-upload" type="file" ng-model-instant
-               onchange="angular.element(this).scope().imageUpload(event)" multiple/>
-      </div>
-    </section>
+  <aside class="sidebar-container" trigger-caching cache-section="personalDetails" trigger-func="triggerCaching">
+    <div class="picture-wrapper">
+      <label for="picture-upload" class="custom-picture-upload upload-btn">
+        <img class="upload-photo"
+             src={{data.personalDetails.pictureSrc}}
+             alt="Resume photo" title="Please upload a photo"/>
+      </label>
+      <input id="picture-upload" type="file" ng-model-instant
+             onchange="angular.element(this).scope().imageUpload(event)" multiple/>
+    </div>
+    <div class="clearfix"></div>
     <div>
       <h3 contenteditable="true" placeholder="Name" ng-model="data.personalDetails.name"></h3>
       <h4 contenteditable="true" placeholder="Current position" ng-model="data.personalDetails.currPos"></h4>
@@ -56,7 +55,8 @@
   </aside>
 </div>
 <article class="col-md-8">
-  <section class="space" ng-mouseenter="showButtons.work = true; showButtons.workDelete = displayDeleteButton('work')"
+  <section class="space" trigger-caching cache-section="workingExperience" trigger-func="triggerCaching"
+           ng-mouseenter="showButtons.work = true; showButtons.workDelete = displayDeleteButton('work')"
            ng-mouseleave="showButtons.work = false; showButtons.workDelete = false">
     <h3>Work experience</h3>
     <hr>
@@ -68,7 +68,7 @@
         <div>
           <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
         </div>
-          <div>From:
+        <div>From:
           <label class="date-label">
             <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
             </cv-date-picker>
@@ -99,7 +99,7 @@
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
-  <section class="space"
+  <section class="space" trigger-caching cache-section="education" trigger-func="triggerCaching"
            ng-mouseenter="showButtons.education = true; showButtons.educationDelete = displayDeleteButton('education')"
            ng-mouseleave="showButtons.education = false; showButtons.educationDelete = false">
     <h3>Education</h3>
@@ -143,7 +143,7 @@
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
-  <section class="space"
+  <section class="space" trigger-caching cache-section="languages" trigger-func="triggerCaching"
            ng-mouseenter="showButtons.languages = true; showButtons.languagesDelete = displayDeleteButton('languages')"
            ng-mouseleave="showButtons.languages = false; showButtons.languagesDelete = false">
     <h3>Languages</h3>
@@ -173,7 +173,8 @@
       <i class="glyphicon glyphicon-plus plus"></i>
     </div>
   </section>
-  <section class="hide-buttons space" ng-mouseenter="showButtons.proSkills = true"
+  <section class="hide-buttons space" trigger-caching cache-section="skills" trigger-func="triggerCaching"
+           ng-mouseenter="showButtons.proSkills = true"
            ng-mouseleave="showButtons.proSkills = false">
     <h3>Professional skills</h3>
     <hr>
