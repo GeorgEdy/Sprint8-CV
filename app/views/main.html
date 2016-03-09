@@ -60,39 +60,42 @@
            ng-mouseleave="showButtons.work = false; showButtons.workDelete = false">
     <h3>Work experience</h3>
     <hr>
-    <div class="parent" ng-repeat="item in data.workingExperience">
-      <div class="pull-left bulleted-text">
-        <div contenteditable="true" placeholder="Position" class="fa fa-circle" ng-model="item.position"></div>
-      </div>
-      <div class="pull-right">
-        <div>
-          <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
+    <div id="work-drag">
+      <div class="parent" ng-repeat="item in data.workingExperience">
+        <div class="pull-left bulleted-text">
+          <div contenteditable="true" placeholder="Position" class="fa fa-circle" ng-model="item.position"></div>
         </div>
+        <div class="pull-right">
+          <div>
+            <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
+          </div>
           <div>From:
-          <label class="date-label">
-            <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
-            </cv-date-picker>
-          </label>
-        </div>
-        <div class="clearfix"></div>
-        <div>To:
-          <label class="date-label">
-            <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
+            <label class="date-label">
+              <cv-date-picker date-value="item.dateStart" show="showButtons.work" ch-value="item.toPresent">
+              </cv-date-picker>
+            </label>
+          </div>
+          <div class="clear"></div>
+          <div>To:
+            <label class="date-label">
+              <cv-date-picker date-value="item.dateEnd" show="showButtons.work" ch-value="item.toPresent" ch-use="true">
               <span ng-show="showButtons.work" class="date-span">
                 <input ng-model='item.toPresent' type="checkbox"/>To Present</span>
-            </cv-date-picker>
-          </label>
+              </cv-date-picker>
+            </label>
+          </div>
+          <div>
+            <div contenteditable="true" placeholder="Description" ng-model="item.description"></div>
+          </div>
         </div>
-        <div>
-          <div contenteditable="true" placeholder="Description" ng-model="item.description"></div>
+
+        <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
+             ng-class="showButtons.workDelete ? 'visible' : 'invisibleButton'">
+          <i class="glyphicon glyphicon-minus minus"></i>
         </div>
+        <div class="clear"></div>
+        <hr class="hr-between-items">
       </div>
-      <div class="clearfix"></div>
-      <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('workingExperience', $event , $index)"
-           ng-class="showButtons.workDelete ? 'visible' : 'invisibleButton'">
-        <i class="glyphicon glyphicon-minus minus"></i>
-      </div>
-      <hr class="hr-between-items">
     </div>
     <div class="plus-btn" ng-click="addField('workingExperience')"
          ng-class="showButtons.work ? 'visible' : 'invisibleButton'">
@@ -104,21 +107,22 @@
            ng-mouseleave="showButtons.education = false; showButtons.educationDelete = false">
     <h3>Education</h3>
     <hr>
-    <div class="parent" ng-repeat="item in data.education">
-      <div class="pull-left bulleted-text">
-        <div contenteditable="true" placeholder="Degree" class="fa fa-circle" ng-model="item.degree"></div>
-      </div>
-      <div class="pull-right">
-        <div>
-          <div contenteditable="true" placeholder="School name and location" ng-model="item.school"></div>
+    <div id="education-drag">
+      <div class="parent" ng-repeat="item in data.education">
+        <div class="pull-left bulleted-text">
+          <div contenteditable="true" placeholder="Degree" class="fa fa-circle" ng-model="item.degree"></div>
         </div>
+        <div class="pull-right">
+          <div>
+            <div contenteditable="true" placeholder="School name and location" ng-model="item.school"></div>
+          </div>
           <span>From:
           <label class="date-label">
             <cv-date-picker date-value="item.dateStart" show="showButtons.education" ch-value="item.toPresent">
             </cv-date-picker>
           </label>
         </span>
-        <div class="clearfix"></div>
+          <div class="clear"></div>
         <span>To:
           <label>
             <cv-date-picker date-value="item.dateEnd" show="showButtons.education" ch-value="item.toPresent"
@@ -126,17 +130,18 @@
             </cv-date-picker>
           </label>
         </span>
-        <div>
-          <div contenteditable="true" placeholder="description" ng-model="item.description"></div>
-        </div>
-        <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
-             ng-class="showButtons.educationDelete ? 'visible' : 'invisibleButton'">
-          <i class="glyphicon glyphicon-minus minus"></i>
-        </div>
+          <div>
+            <div contenteditable="true" placeholder="description" ng-model="item.description"></div>
+          </div>
+          <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
+               ng-class="showButtons.educationDelete ? 'visible' : 'invisibleButton'">
+            <i class="glyphicon glyphicon-minus minus"></i>
+          </div>
 
+        </div>
+        <div class="clear"></div>
+        <hr class="hr-between-items">
       </div>
-      <div class="clearfix"></div>
-      <hr class="hr-between-items">
     </div>
     <div class="plus-btn" ng-click="addField('education')"
          ng-class="showButtons.education ? 'visible' : 'invisibleButton'">
@@ -154,18 +159,20 @@
       <span class="col-md-2 lang-margin">Writing</span>
       <hr class="hr-between-items  hr-margin">
     </div>
-    <div class="parent" ng-repeat="item in data.languages">
-      <div class="row hide-buttons">
-        <div contenteditable="true" placeholder="Name" class="col-md-4 lang" ng-model="item.name"></div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.understanding"></div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.speaking"></div>
-        <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.writing"></div>
-        <div class="clearfix"></div>
-        <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('languages', $event, $index)"
-             ng-class="showButtons.languagesDelete ? 'visible' : 'invisibleButton'">
-          <i class="glyphicon glyphicon-minus minus"></i>
+    <div id="language-drag">
+      <div class="parent" ng-repeat="item in data.languages">
+        <div class="row hide-buttons">
+          <div contenteditable="true" placeholder="Name" class="col-md-4 lang" ng-model="item.name"></div>
+          <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.understanding"></div>
+          <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.speaking"></div>
+          <div contenteditable="true" placeholder="Level" class="col-md-4 language" ng-model="item.writing"></div>
+          <div class="clear"></div>
+          <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('languages', $event, $index)"
+               ng-class="showButtons.languagesDelete ? 'visible' : 'invisibleButton'">
+            <i class="glyphicon glyphicon-minus minus"></i>
+          </div>
+          <hr class="hr-between-items">
         </div>
-        <hr class="hr-between-items">
       </div>
     </div>
     <div class="plus-btn" ng-click="addField('languages')"
