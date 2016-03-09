@@ -5,7 +5,9 @@
 
   //controllers
   app.controller('MainCtrl', function ($scope, StorageService) {
-    dragula([document.getElementById('test')]);
+    dragula([document.getElementById('work-drag')]);
+    dragula([document.getElementById('education-drag')]);
+    dragula([document.getElementById('language-drag')]);
       $scope.currentDocIndex = StorageService.currentDocIndex;
       $scope.data = StorageService.data[$scope.currentDocIndex];
       $scope.showButtons = {work: false, education: false, languages: false, proSkills: false, picture: false};
