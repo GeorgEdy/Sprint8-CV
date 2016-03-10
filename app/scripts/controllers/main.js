@@ -5,9 +5,9 @@
 
   //controllers
   app.controller('MainCtrl', function ($scope, StorageService) {
-    dragula([document.getElementById('work-drag')]);
-    dragula([document.getElementById('education-drag')]);
-    dragula([document.getElementById('language-drag')]);
+      dragula([document.getElementById('work-drag')]);
+      dragula([document.getElementById('education-drag')]);
+      dragula([document.getElementById('language-drag')]);
       $scope.currentDocIndex = StorageService.currentDocIndex;
       $scope.data = StorageService.data[$scope.currentDocIndex];
       $scope.showButtons = {work: false, education: false, languages: false, proSkills: false, picture: false};
@@ -60,6 +60,7 @@
         }
       };
 
+
       $scope.imageUpload = function (event) {
         var files = event.target.files;
         var reader = new FileReader();
@@ -72,6 +73,110 @@
           $scope.data.personalDetails.pictureSrc = e.target.result;
           console.log($scope.data.personalDetails);
         });
+      };
+
+
+      $(window).on('keypress', function (event) {
+        //console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
+        if (event.ctrlKey && (event.which == 26)) {
+          var docIndex = StorageService.currentDocIndex;
+          var index = --StorageService.historyDataIndex;
+          if (index > 0) {
+            console.log('UNDO');
+            console.log(StorageService.data[docIndex]);
+            $scope.data.cvName = '1234567';
+            var lastHistoryObj = StorageService.historyQueueOriginal[docIndex][index];
+            objectPath.set(StorageService.data[docIndex], lastHistoryObj.section, lastHistoryObj.data);
+            console.log(StorageService.historyQueueOriginal, index);
+          }
+        }
+        else if (event.ctrlKey && (event.which == 25)) {
+          console.log('REDO');
+        }
+        else if (event.shiftKey && (event.keyCode == 68)) {
+          window.onbeforeunload = null;
+          localStorage.clear('data');
+          StorageService.data = [];
+          location.reload();
+        }
+        else if (event.shiftKey && (event.keyCode == 67)) {
+          console.log(StorageService.data);
+        }
+      });
+
+      var stripHashKey = function (item) {
+        var json = JSON.stringify(item, function (key, value) {
+          if (key === "$$hashKey") {
+            return undefined;
+          }
+          return value;
+        });
+        return JSON.parse(json);
+      };
+
+      $scope.triggerCaching = function (cacheSection) {
+        var index = StorageService.currentDocIndex;
+        var sectionData = objectPath.get(StorageService.data[index], cacheSection);
+        var lastSectionData = objectPath.get(StorageService.lastData[index], cacheSection);
+        //console.log(lastSectionData, sectionData);
+        var cleanSectionData = stripHashKey(sectionData);
+        //console.log(lastSectionData, sectionData, cleanSectionData);
+        //current data
+        var historyObject = {
+          data: angular.copy(sectionData),
+          timestamp: moment(),
+          section: cacheSection
+        };
+        //data before current data
+        var lastObject = {
+          data: angular.copy(lastSectionData),
+          timestamp: moment(),
+          section: cacheSection
+        };
+        //console.log('Section Data', sectionData);
+        var historyLength = StorageService.historyQueueOriginal[index].length;
+        if (historyLength) {
+          console.log('History is NOT empty');
+          console.log(StorageService.historyQueueOriginal);
+          var length = StorageService.historyQueueOriginal[index].length;
+          for (var i = length; i > 0; i--) {
+            var cleanHistoryData = stripHashKey(StorageService.historyQueueChanged[index][i - 1].data);
+            var sameSection = StorageService.historyQueueOriginal[index][i - 1].section == cacheSection;
+            if (sameSection) {
+              console.log('Same section');
+              if (!_.isEqual(cleanSectionData, cleanHistoryData)) {
+                console.log('Not equal');
+                StorageService.historyQueueOriginal[index].push(lastObject);
+                StorageService.historyQueueChanged[index].push(historyObject);
+                StorageService.lastData = angular.copy(StorageService.data);
+                StorageService.historyDataIndex = StorageService.historyQueueOriginal[index].length - 1;
+                console.log('HISTORY DATA INDEX : ', StorageService.historyDataIndex);
+                console.log(StorageService.historyQueueOriginal);
+
+                console.log('QUEUE ORIGINAL');
+                console.log(StorageService.historyQueueOriginal);
+
+                console.log('QUEUE CHANGED');
+                console.log(StorageService.historyQueueChanged);
+                return;
+              }
+              else {
+                console.log('Is equal');
+                StorageService.historyDataIndex = StorageService.historyQueueOriginal[index].length - 1;
+                console.log('HISTORY DATA INDEX : ', StorageService.historyDataIndex);
+                return;
+              }
+            }
+
+            else {
+              console.log('Different section');
+            }
+          }
+        }
+        else {
+          console.log('History is empty');
+          StorageService.initialiseHistory(index);
+        }
       };
     }
   );
@@ -87,11 +192,23 @@
         chUse: "="
       },
       template: '<div>' +
-      '<input ng-model="dateValue" ng-show="show" type="date">' +
+      '<input ng-model="dateValue" ng-show="show" format-date type="date">' +
       '<div ng-hide="show">{{dateValue | dateFilter:chValue:chUse}}</div>' +
       '<ng-transclude></ng-transclude>' +
       '</div>',
       link: function (scope, element, attrs) {
+      }
+    }
+  });
+
+
+  app.directive("formatDate", function () {
+    return {
+      require: 'ngModel',
+      link: function (scope, elem, attr, modelCtrl) {
+        modelCtrl.$formatters.push(function (modelValue) {
+          return new Date(modelValue);
+        })
       }
     }
   });
@@ -104,14 +221,6 @@
         element.on('click', function () {
           element.blur();
         })
-      }
-    }
-  });
-
-  app.directive('createDocument', function () {
-    return {
-      restrict: 'A',
-      link: function (scope, element, attrs) {
       }
     }
   });
@@ -137,6 +246,21 @@
         });
       }
     };
+  });
+
+  app.directive('triggerCaching', function () {
+    return {
+      restrict: 'A',
+      scope: {
+        cacheSection: '@',
+        triggerFunc: '='
+      },
+      link: function (scope, element, attrs) {
+        $(element).focusout(function () {
+          scope.triggerFunc(scope.cacheSection);
+        });
+      }
+    }
   });
 
   app.filter('dateFilter', function () {

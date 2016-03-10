@@ -15,14 +15,15 @@ angular.module('sprint8App')
     $scope.$watch(function () {
       return $scope.cvName;
     }, function (newValue) {
-      StorageService.data[StorageService.currentDocIndex].cvName = newValue
+      StorageService.data[StorageService.currentDocIndex].cvName = newValue;
     });
 
     $scope.changeViewVariable = function () {
       if ($scope.currentView == '') {
         $scope.currentView = 'list';
       } else {
-        $scope.currentView = '';
+        var dataLength = StorageService.data.length;
+        $scope.currentView = dataLength ? '' : 'list';
       }
     };
 

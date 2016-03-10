@@ -1,0 +1,25 @@
+console.log('History exists');
+          for (var i = historyLength; i > 0; i--) {
+            var historyData = StorageService.historyQueue;
+            if (historyData.section == cacheSection) {
+              console.log('Comparison');
+              console.log(historyData.data === sectionData);
+              if (!_.isEqual(historyData.data, sectionData)) {
+                var historyObject = {
+                  data: sectionData,
+                  timestamp: moment(),
+                  section: cacheSection
+                };
+                StorageService.setDocumentHistory(index, historyObject);
+                console.log('Different Data');
+                break;
+              }
+              else {
+                console.log('Same Data');
+              }
+            }
+            else {
+              console.log('Different Sections', i, cacheSection);
+            }
+          }
+        }

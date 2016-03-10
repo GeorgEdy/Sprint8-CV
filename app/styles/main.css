@@ -359,8 +359,8 @@ section .fa-circle {
 
 .create-document:hover {
   background-color: rgb(204, 204, 204);
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
 }
 
 .create-document-button {
