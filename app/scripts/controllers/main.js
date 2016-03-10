@@ -77,17 +77,20 @@
 
 
       $(window).on('keypress', function (event) {
-        //console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
-        if (event.ctrlKey && (event.which == 26)) {
+        console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
+        if (event.shiftKey && (event.which == 122)) {
+          console.log('UNDO');
           var docIndex = StorageService.currentDocIndex;
           var index = --StorageService.historyDataIndex;
           if (index > 0) {
-            console.log('UNDO');
-            console.log(StorageService.data[docIndex]);
-            $scope.data.cvName = '1234567';
-            var lastHistoryObj = StorageService.historyQueueOriginal[docIndex][index];
+            var lastHistoryObj = StorageService.historyQueueChanged[docIndex][index];
+            console.log(lastHistoryObj.section, lastHistoryObj.data);
+            console.log('scope obj', objectPath.get($scope.data, lastHistoryObj.section));
             objectPath.set(StorageService.data[docIndex], lastHistoryObj.section, lastHistoryObj.data);
-            console.log(StorageService.historyQueueOriginal, index);
+            var currentObj = objectPath.get(StorageService.data[docIndex]);
+            console.log('last obj', lastHistoryObj);
+            console.log('current obj', currentObj);
+            $scope.$apply();
           }
         }
         else if (event.ctrlKey && (event.which == 25)) {
