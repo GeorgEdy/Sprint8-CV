@@ -278,7 +278,7 @@ label {
 }
 
 .contact-section, .social-section {
-  text-align: center;
+  text-align: right;
 }
 
 .about-section i {
@@ -327,7 +327,13 @@ section .fa-circle {
   font-weight: 600;
   color: #0091EA;
 }
-
+.content-width[contenteditable=true]{
+  width: 340px;
+}
+/*[contentEditable=true]:empty:not(:focus):before{*/
+  /*content:attr(data-placeholder);*/
+  /*color:red;*/
+/*}*/
 /*------------------------------------------------LIST VIEW CSS---------------------------------------------------------*/
 .list-view {
   background-color: dimgray;

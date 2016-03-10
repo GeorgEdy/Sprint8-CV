@@ -67,7 +67,7 @@
         </div>
         <div class="pull-right">
           <div>
-            <div contenteditable="true" placeholder="Company name and location" ng-model="item.company"></div>
+            <div contenteditable="true" placeholder="Company name and location" class="content-width" ng-model="item.company"></div>
           </div>
           <div>From:
             <label class="date-label">
@@ -85,7 +85,7 @@
             </label>
           </div>
           <div>
-            <div contenteditable="true" placeholder="Description" ng-model="item.description"></div>
+            <div contenteditable="true" placeholder="Description" class="content-width" ng-model="item.description"></div>
           </div>
         </div>
 
@@ -114,7 +114,7 @@
         </div>
         <div class="pull-right">
           <div>
-            <div contenteditable="true" placeholder="School name and location" ng-model="item.school"></div>
+            <div contenteditable="true" placeholder="School name and location" class="content-width" ng-model="item.school"></div>
           </div>
           <span>From:
           <label class="date-label">
@@ -131,7 +131,7 @@
           </label>
         </span>
           <div>
-            <div contenteditable="true" placeholder="description" ng-model="item.description"></div>
+            <div contenteditable="true" placeholder="description"  class="content-width" ng-model="item.description"></div>
           </div>
           <div class="rmv-btn" data-id={{$index}} ng-click="deleteField('education', $event, $index)"
                ng-class="showButtons.educationDelete ? 'visible' : 'invisibleButton'">
