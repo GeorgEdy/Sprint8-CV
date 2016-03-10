@@ -356,25 +356,25 @@ section .fa-circle {
   color: #337ab7;
 }
 
-.create-document:hover {
-  background-color: rgb(204, 204, 204);
+/*.create-document:hover {*/
+  /*!*background-color: rgb(204, 204, 204);*!*/
   /*-webkit-filter: blur(2px);*/
   /*filter: blur(2px);*/
-}
+/*}*/
 
 .create-document-button {
   position: absolute;
   z-index: 2;
   font-size: 80px;
-  color: #00C853;
+  color: #00E676;
   text-align: center;
   margin: 120px 0 0 70px;
 }
 
-.create-document-button:hover + .create-document {
-  background-color: rgb(204, 204, 204);
-  /*-webkit-filter: blur(2px);*/
-  /*filter: blur(2px);*/
+.create-document-button:hover {
+  color: #64DD17;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
 }
 
 .existing-document-wrapper {
@@ -391,15 +391,15 @@ section .fa-circle {
 }
 
 .existing-document h2 {
-  margin-top: 30%;
+  margin-top: 52%;
 }
 
 .delete-document-button {
   position: absolute;
-  top: 7%;
-  left: 81%;
+  top: 0;
+  right: 15px;
   color: #ff3831;
-  font-size: 30px;
+  font-size: 40px;
   cursor: pointer;
   transition: 0.2s;
   opacity: 0;
