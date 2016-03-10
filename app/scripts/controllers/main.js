@@ -77,8 +77,8 @@
 
 
       $(window).on('keypress', function (event) {
-        //console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
-        if (event.shiftKey && (event.which == 90)) {
+        console.log(event.ctrlKey, event.shiftKey, event.keyCode, 'main');
+        if (event.shiftKey && (event.which == 122)) {
           console.log('UNDO');
           var docIndex = StorageService.currentDocIndex;
           var index = --StorageService.historyDataIndex;
